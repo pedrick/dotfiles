@@ -1,1 +1,1 @@
-rsync --exclude "setup.sh" -av . ~
+rsync --exclude ".git/" --exclude "setup.sh" -av . ~
