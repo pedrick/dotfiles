@@ -123,8 +123,8 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_disabled_filetypes = ['java']
 
 " Java Checkstyle
-let Checkstyle_Classpath =
-let Checkstyle_XML =
+let Checkstyle_Classpath = ""
+let Checkstyle_XML = ""
 
 " OmniCppComplete
 let OmniCpp_NamespaceSearch = 1
