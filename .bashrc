@@ -15,6 +15,9 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 set -o vi
 export EDITOR=vi
 
+# History
+export HISTFILESIZE=5000
+
 # Ulimit (helpful for core dump)
 ulimit -c unlimited
 
