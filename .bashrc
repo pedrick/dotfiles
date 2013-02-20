@@ -21,6 +21,8 @@ export HISTFILESIZE=5000
 # Ulimit (helpful for core dump)
 ulimit -c unlimited
 
+export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+
 #################################################
 # Aliases
 #################################################
