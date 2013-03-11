@@ -77,7 +77,7 @@ function! VimwikiFoldLevel(lnum) "{{{
   " List item folding...
   if g:vimwiki_fold_lists
     let nnline = getline(a:lnum + 1)
-
+    
     let rx_list_item = '\('.
           \ g:vimwiki_rxListBullet.'\|'.g:vimwiki_rxListNumber.
           \ '\)'
@@ -92,7 +92,7 @@ function! VimwikiFoldLevel(lnum) "{{{
       if leveln > level
         return ">".(base_level+leveln-adj)
       " check if multilined list item
-      elseif (nnum-a:lnum) > 1
+      elseif (nnum-a:lnum) > 1 
             \ && nline =~ rx_list_item && nnline !~ '^\s*$'
         return ">".(base_level+level+1-adj)
       else
@@ -178,7 +178,7 @@ function! s:get_start_list(rx_item, lnum) "{{{
 endfunction "}}}
 
 function! VimwikiFoldText() "{{{
-  let line = substitute(getline(v:foldstart), '\t',
+  let line = substitute(getline(v:foldstart), '\t', 
         \ repeat(' ', &tabstop), 'g')
   return line.' ['.(v:foldend - v:foldstart).']'
 endfunction "}}}
@@ -187,13 +187,13 @@ endfunction "}}}
 
 " COMMANDS {{{
 command! -buffer Vimwiki2HTML
-      \ silent w <bar>
+      \ silent w <bar> 
       \ let res = vimwiki#html#Wiki2HTML(expand(VimwikiGet('path_html')),
       \                             expand('%'))
       \<bar>
       \ if res != '' | echo 'Vimwiki: HTML conversion is done.' | endif
 command! -buffer Vimwiki2HTMLBrowse
-      \ silent w <bar>
+      \ silent w <bar> 
       \ call vimwiki#base#system_open_link(vimwiki#html#Wiki2HTML(
       \         expand(VimwikiGet('path_html')),
       \         expand('%')))
@@ -455,7 +455,7 @@ nnoremap <silent><buffer> <Plug>VimwikiRemoveHeaderLevel :
 if VimwikiGet('auto_export')
   " Automatically generate HTML on page write.
   augroup vimwiki
-    au BufWritePost <buffer>
+    au BufWritePost <buffer> 
       \ call vimwiki#html#Wiki2HTML(expand(VimwikiGet('path_html')),
       \                             expand('%'))
   augroup END
