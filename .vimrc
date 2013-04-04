@@ -73,7 +73,7 @@ hi ColorColumn ctermbg=lightgrey guibg=lightgrey
 
 set wildmenu " show list of matching files when opening
 set wildmode=longest:full,full
-set wildignore=*.pyc,$.class
+set wildignore=*.pyc,*.class
 
 " Mark tab characters with arrow and trailing white space
 set list listchars=tab:▸\ ,trail:⋅,nbsp:⋅
