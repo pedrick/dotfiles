@@ -139,6 +139,9 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,preview
 
+" Haskell
+let g:haddock_browser = "/usr/bin/firefox"
+
 " Load pathogen
 call pathogen#infect()
 call pathogen#helptags()
