@@ -71,6 +71,8 @@ set textwidth=80
 set cc=+1
 hi ColorColumn ctermbg=lightgrey guibg=lightgrey
 
+set so=5
+
 set wildmenu " show list of matching files when opening
 set wildmode=longest:full,full
 set wildignore=*.pyc,*.class
