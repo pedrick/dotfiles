@@ -55,7 +55,7 @@ map <silent> <F3> :tabn<CR>
 imap <BS> <C-W>
 
 " Short cut to grep word under cursor
-nnoremap <leader>g "gye:!grep -r g *
+nnoremap <leader>g "gye:!grep -I -r g *
 
 " Short cut to copy file to clipboard
 nnoremap <leader>c :w !xclip -selection clipboard
