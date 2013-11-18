@@ -27,7 +27,10 @@ export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu
 # Aliases
 #################################################
 
+alias grep='grep --color'
 alias ll='ls -l'
+alias hg='history | grep'
+alias emacs='emacs -nw'
 
 #################################################
 # Autocomplete
