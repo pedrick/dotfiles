@@ -60,3 +60,33 @@ if [[ `uname` == "Linux" ]]; then
 
     alias ls='ls --color=auto'
 fi
+
+targrep() {
+
+  local taropt=""
+
+  if [[ ! -f "$2" ]]; then
+    echo "Usage: targrep pattern file ..."
+  fi
+
+  while [[ -n "$2" ]]; do
+
+    if [[ ! -f "$2" ]]; then
+      echo "targrep: $2: No such file" >&2
+    fi
+
+    case "$2" in
+      *.tar.gz) taropt="-z" ;;
+      *) taropt="" ;;
+    esac
+
+    while read filename; do
+      tar $taropt -xOf "$2" \
+       | grep "$1" \
+       | sed "s|^|$filename:|";
+    done < <(tar $taropt -tf $2 | grep -v '/$')
+
+  shift
+
+  done
+}
