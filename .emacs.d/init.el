@@ -38,6 +38,7 @@
 ;;; Mode settings
 (show-paren-mode 1)
 (column-number-mode 1)
+(setq-default indent-tabs-mode nil)
 
 
 ; Cython mode
