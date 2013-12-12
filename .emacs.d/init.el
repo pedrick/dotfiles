@@ -77,6 +77,13 @@
 (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 (add-hook 'ruby-mode-hook 'flymake-ruby-load)
 
+; Uniquify
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'reverse)
+(setq uniquify-separator "|")
+(setq uniquify-after-kill-buffer-p t) ; rename after killing uniquified
+(setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
+
 ;;; Package settings
 (setq package-archives '(("org"       . "http://orgmode.org/elpa/")
                          ("gnu"       . "http://elpa.gnu.org/packages/")
