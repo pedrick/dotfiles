@@ -8,4 +8,4 @@
 	name = Ben Pedrick
 	email = ben.pedrick@gmail.com
 [push]
-	default = matching
+	default = upstream
