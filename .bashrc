@@ -3,6 +3,8 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+source ~/.localrc
+
 #################################################
 # Shell settings
 #################################################
@@ -17,6 +19,7 @@ export EDITOR=vi
 
 # History
 export HISTFILESIZE=5000
+export HISTIGNORE="history*:  *"
 
 # Ulimit (helpful for core dump)
 ulimit -c unlimited
@@ -61,7 +64,11 @@ if [[ `uname` == "Linux" ]]; then
     alias ls='ls --color=auto'
 fi
 
-targrep() {
+#################################################
+# Functions
+#################################################
+
+function targrep {
 
   local taropt=""
 
@@ -90,3 +97,22 @@ targrep() {
 
   done
 }
+
+function up {
+    usage='USAGE: up <number>'
+    if [[ $# -ne 1 ]] ; then
+        echo $usage && return 65
+    fi
+
+    num=$1
+    upstr='.'
+    iter=0
+    until [ $iter -eq $num ] ; do
+        upstr="${upstr}/.."
+        let iter=iter+1
+    done
+    cd $upstr
+}
+
+### Added by the Heroku Toolbelt
+export PATH="~/ssh-hosts:/usr/local/heroku/bin:$PATH"
