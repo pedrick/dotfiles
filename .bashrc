@@ -15,7 +15,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Edit preferences
 set -o vi
-export EDITOR=vi
+export EDITOR='emacs -nw'
 
 # History
 export HISTFILESIZE=5000
