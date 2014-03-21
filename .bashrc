@@ -3,7 +3,9 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-source ~/.localrc
+if [ -f ~/.localrc ]; then
+    source ~/.localrc
+fi
 
 #################################################
 # Shell settings
