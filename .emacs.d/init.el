@@ -12,6 +12,10 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
+;;; Width
+(setq-default fill-column 80)
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
 ;;; Colors
 (load-theme 'solarized-light t)
 (menu-bar-mode 0)
