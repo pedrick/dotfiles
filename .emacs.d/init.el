@@ -19,9 +19,16 @@
 ;;; Colors
 (load-theme 'solarized-light t)
 (menu-bar-mode 0)
+
 (require 'whitespace)
 (setq whitespace-line-column 80
-      whitespace-style '(face tabs trailing lines-tail))
+      whitespace-style '(face trailing lines-tail space-mark tab-mark
+                              newline-mark))
+(setq whitespace-display-mappings
+       ;; all numbers are Unicode codepoint in decimal.
+      '(
+        (tab-mark 9 [9655 9] [92 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
+        ))
 (global-whitespace-mode 1)
 
 ;;; Backup Directory
