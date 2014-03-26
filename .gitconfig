@@ -4,8 +4,13 @@
     branch = auto
     diff = auto
     status = auto
-[user]
-	name = Ben Pedrick
-	email = ben.pedrick@gmail.com
 [push]
-	default = upstream
+    default = upstream
+[sendemail]
+    smtpencryption = tls
+    smtpserver = smtp.gmail.com
+    smtpuser = ben.pedrick@gmail.com
+    smtpserverport = 587
+[user]
+    name = Ben Pedrick
+    email = ben.pedrick@gmail.com
