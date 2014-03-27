@@ -12,6 +12,9 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
+;;; Line endings
+(setq buffer-file-coding-system 'utf-8-unix)
+
 ;;; Width
 (setq-default fill-column 80)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
@@ -88,11 +91,9 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done 'time)
 
-; Flymake
-(require 'flymake-cursor)
-(require 'flymake-python-pyflakes)
-(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
-(add-hook 'ruby-mode-hook 'flymake-ruby-load)
+; Flycheck
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ; Uniquify
 (require 'uniquify)
