@@ -83,6 +83,10 @@
         (push 'escape unread-command-events))
        (t (setq unread-command-events (append unread-command-events
                                               (list evt))))))))
+; Ido mode
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
 
 ; Org mode
 (global-set-key "\C-cl" 'org-store-link)
