@@ -1,0 +1,14 @@
+Config  { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
+        , bgColor = "black"
+        , fgColor = "grey" 
+        , position = Top L 90
+        , commands = [ Run Battery ["-t","Batt: <left>% / <timeleft>", "--", "-c", "energy_full"] 10
+                     , Run Date "%a %b %_d %l:%M" "date" 10
+                     , Run Wireless "wlan0" [] 10
+                     , Run StdinReader
+                     ]
+        , sepChar = "%"
+        , alignSep = "}{"
+        , template = "%StdinReader% }{ %battery% | %wlan0wi% | %date% "
+        , lowerOnStart = False
+        }
