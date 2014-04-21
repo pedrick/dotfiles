@@ -15,3 +15,18 @@ lint-js:
 .PHONY: lint-py
 lint-py:
 	sudo pip install flake8
+
+.PHONY: suckless-tools
+suckless-tools:
+	sudo apt-get install suckless-tools
+
+.PHONY: xmobar
+xmobar:
+	sudo apt-get install xmobar
+
+.PHONY: xmonad-base
+xmonad-base: suckless-tools
+	sudo apt-get install xmonad libghc6-xmonad-dev libghc6-xmonad-contrib-dev
+
+.PHONY: xmonad
+xmonad: xmonad-base xmobar suckless-tools
