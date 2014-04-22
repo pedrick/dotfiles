@@ -5,6 +5,7 @@
 .gdb_history
 .ido.last
 .indexer_files*
+.ipython/
 .irb_history
 .kshrc
 .lesshst
@@ -15,6 +16,9 @@
 .ssh
 .vim/.netrwhist
 .viminfo
+.xmonad/xmonad-*
+.xmonad/xmonad.hi
+.xmonad/xmonad.0
 Desktop/
 Documents/
 Downloads/
@@ -26,6 +30,7 @@ Pictures
 Public/
 Sites/
 Ubuntu One/
+node_modules/
 tmp/
 vimwiki/
 vimwiki_html/
