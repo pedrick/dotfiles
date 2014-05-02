@@ -17,8 +17,11 @@
 .vim/.netrwhist
 .viminfo
 .xmonad/xmonad-*
-.xmonad/xmonad.hi
 .xmonad/xmonad.0
+.xmonad/xmonad.errors
+.xmonad/xmonad.h
+.xmonad/xmonad.hi
+.xmonad/xmonad.o
 Desktop/
 Documents/
 Downloads/
