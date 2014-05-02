@@ -42,11 +42,7 @@ alias please='sudo $(history -p !-1)'
 # Autocomplete
 #################################################
 
-# git
-source ~/util/git-completion.bash
-
-# ssh
-complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u | sed 's/^ssh //'))" ssh
+source /usr/share/bash-completion/bash_completion
 
 # fab
 has_fab=true
@@ -54,6 +50,10 @@ type fab >/dev/null 2>&1 || has_fab=false
 if $has_fab ; then
     source ~/util/fabric-completion.bash
 fi
+
+# ssh
+complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u | sed 's/^ssh //'))" ssh
+
 
 #################################################
 # OS Specific
