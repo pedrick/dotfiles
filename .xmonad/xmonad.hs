@@ -17,12 +17,17 @@ myManageHook = composeAll [
 
 main = do
     xmoproc <- spawnPipe "/usr/bin/xmobar /home/pedrick/.xmobarrc"
+    xmoproc1 <- spawnPipe "/usr/bin/xmobar -x 1 /home/pedrick/.xmobarrc"
     xmonad $ defaultConfig {
         terminal = "gnome-terminal"
         , manageHook = myManageHook <+> manageDocks <+> manageHook defaultConfig
         , layoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig
         , logHook = dynamicLogWithPP xmobarPP
                     { ppOutput = hPutStrLn xmoproc
+                    , ppTitle = xmobarColor "green" "" . shorten 50
+                    }
+                    >> dynamicLogWithPP xmobarPP
+                    { ppOutput = hPutStrLn xmoproc1
                     , ppTitle = xmobarColor "green" "" . shorten 50
                     }
         , borderWidth        = 2
