@@ -20,13 +20,20 @@ lint-py:
 suckless-tools:
 	sudo apt-get install suckless-tools
 
+.PHONY: tools
+tools:
+	sudo apt-get install dstat iftop
+
 .PHONY: xmobar
 xmobar:
 	sudo apt-get install xmobar
 
 .PHONY: xmonad-base
 xmonad-base: suckless-tools
-	sudo apt-get install xmonad libghc6-xmonad-dev libghc6-xmonad-contrib-dev
+	sudo apt-get install xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev
 
 .PHONY: xmonad
 xmonad: xmonad-base xmobar suckless-tools
+
+.PHONY: all
+all: gpg-settings install lint-js lint-py xmonad tools
