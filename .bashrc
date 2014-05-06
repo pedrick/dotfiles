@@ -116,6 +116,3 @@ function up {
     done
     cd $upstr
 }
-
-### Added by the Heroku Toolbelt
-export PATH="~/ssh-hosts:/usr/local/heroku/bin:$PATH"
