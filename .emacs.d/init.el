@@ -97,7 +97,9 @@
 
 ; Flycheck
 (require 'flycheck)
-(add-hook 'after-init-hook #'global-flycheck-mode)
+(global-flycheck-mode 1)
+(setq evil-motion-state-modes (cons 'flycheck-error-list-mode
+                                    evil-motion-state-modes))
 
 ; Uniquify
 (require 'uniquify)
