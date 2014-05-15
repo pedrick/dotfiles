@@ -25,6 +25,37 @@ lint-js:
 lint-py:
 	sudo pip install flake8
 
+PULSE_CLIENT_CONF_FILE=~/.pulse/client.conf
+PULSE_AUTOSPAWN_DISABLE_CMD=autospawn = no
+@PULSE_AUTOSPAWN_DISABLED=$(shell grep $(PULSE_AUTOSPAWN_DISABLE_CMD) \
+	$(PULSE_CLIENT_CONF_FILE))
+
+PULSE_DAEMON_CONF_FILE=~/.pulse/daemon.conf
+PULSE_SET_SAMPLE_RATE_LINE=default-sample-rate = 48000
+@PULSE_SAMPLE_RATE_SET=$(shell grep $(PULSE_SET_SAMPLE_RATE_LINE) \
+	$(PULSE_DAEMON_CONF_FILE))
+
+.PHONY: pulse-disable
+pulse-disable:
+# See http://www.hecticgeek.com/2012/01/how-to-remove-pulseaudio-use-alsa-ubuntu-linux/
+	sudo apt-get install gnome-alsamixer python-notify python-gtk2 \
+		python-alsaaudio
+ifeq ($(PULSE_AUTOSPAWN_DISABLED),)
+	echo $(PULSE_AUTOSPAWN_DISABLE_CMD) | tee -a $(PULSE_CLIENT_CONF_FILE)
+endif
+	-killall pulseaudio
+
+.PHONY: pulse-enable
+pulse-enable:
+	rm $(PULSE_CLIENT_CONF_FILE)
+	-pulseaudio
+
+.PHONY: pulse-settings
+pulse-settings:
+ifeq ($(PULSE_SET_SAMPLE_RATE_LINE),)
+	echo $(PULSE_SET_SAMPLE_RATE_LINE) | tee -a $(PULSE_DAEMON_CONF_FILE)
+endif
+
 .PHONY: suckless-tools
 suckless-tools:
 	sudo apt-get install suckless-tools
