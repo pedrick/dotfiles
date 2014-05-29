@@ -63,10 +63,12 @@
 (require 'cython-mode)
 
 ; Evil mode
+(setq evil-want-C-i-jump nil)  ; Don't bind <TAB>
 (require 'evil)
 (evil-mode 1)
 
 (define-key evil-insert-state-map "j" #'cofi/maybe-exit)
+(define-key evil-insert-state-map [remap newline] 'evil-ret-and-indent)
 
 (evil-define-command cofi/maybe-exit ()
   :repeat change
@@ -83,6 +85,14 @@
         (push 'escape unread-command-events))
        (t (setq unread-command-events (append unread-command-events
                                               (list evt))))))))
+
+; Flycheck
+(require 'flycheck)
+(global-flycheck-mode 1)
+(setq-default flycheck-flake8-maximum-line-length 80)
+(setq evil-motion-state-modes (cons 'flycheck-error-list-mode
+                                    evil-motion-state-modes))
+
 ; Ido mode
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
@@ -95,11 +105,11 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done 'time)
 
-; Flycheck
-(require 'flycheck)
-(global-flycheck-mode 1)
-(setq evil-motion-state-modes (cons 'flycheck-error-list-mode
-                                    evil-motion-state-modes))
+; Python mode
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq tab-width 4)
+            (setq python-indent 4)))
 
 ; Uniquify
 (require 'uniquify)
