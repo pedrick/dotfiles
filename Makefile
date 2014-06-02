@@ -3,6 +3,10 @@ help:
 	@echo "Available Commands\n------------------"
 	@make -qp | awk -F':' '/^[a-zA-Z0-9][^$$#\/\t=]*:([^=]|$$)/ {split($$1,A,/ /);for(i in A)print A[i]}' | grep -v Makefile
 
+.PHONY: editors
+editors:
+	sudo apt-get install vim emacs24
+
 .PHONY: gpg-settings
 gpg-settings:
 	gsettings set org.gnome.crypto.cache gpg-cache-method 'idle'
@@ -18,11 +22,11 @@ endif
 
 .PHONY: lint-js
 lint-js:
-	sudo apt-get install npm
+	sudo apt-get install node npm
 	sudo npm install -g jshint
 
 .PHONY: lint-py
-lint-py:
+lint-py: tools
 	sudo pip install flake8
 
 PULSE_CLIENT_CONF_FILE=~/.pulse/client.conf
@@ -60,9 +64,14 @@ endif
 suckless-tools:
 	sudo apt-get install suckless-tools
 
+.PHONY: tmux-completion
+
 .PHONY: tools
 tools:
-	sudo apt-get install dstat iftop
+	sudo apt-get install curl dstat iftop tmux xclip
+	curl https://bootstrap.pypa.io/get-pip.py | sudo python
+	sudo ln -s /usr/share/doc/tmux/examples/bash_completion_tmux.sh /etc/bash_completion.d/
+
 
 .PHONY: xmobar
 xmobar:
@@ -76,4 +85,4 @@ xmonad-base: suckless-tools
 xmonad: xmonad-base xmobar suckless-tools
 
 .PHONY: all
-all: gpg-settings install lint-js lint-py xmonad tools
+all: gpg-settings install editors tools lint-js lint-py xmonad
