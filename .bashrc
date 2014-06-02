@@ -103,11 +103,16 @@ function targrep {
 
 function up {
     usage='USAGE: up <number>'
-    if [[ $# -ne 1 ]] ; then
+    if [[ $# -gt 1 ]] ; then
         echo $usage && return 65
     fi
 
-    num=$1
+    if [[ $# -eq 1 ]] ; then
+        num=$1
+    else
+        num=1
+    fi
+
     upstr='.'
     iter=0
     until [ $iter -eq $num ] ; do
