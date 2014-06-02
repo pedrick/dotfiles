@@ -67,6 +67,7 @@
 (require 'evil)
 (evil-mode 1)
 
+(setq evil-auto-indent t)
 (define-key evil-insert-state-map "j" #'cofi/maybe-exit)
 (define-key evil-insert-state-map [remap newline] 'evil-ret-and-indent)
 
@@ -97,6 +98,20 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
+
+; Java mode
+(add-hook 'java-mode-hook
+          (lambda ()
+            (setq c-basic-offset 4
+                  tab-width 4
+                  indent-tabs-mode t)
+            (setq whitespace-display-mappings '())
+            (outline-minor-mode 1)))
+
+; Makefile mode
+(add-hook 'makefile-mode-hook
+          (lambda ()
+            (modify-syntax-entry ?= "'")))
 
 ; Org mode
 (global-set-key "\C-cl" 'org-store-link)
