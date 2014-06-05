@@ -68,7 +68,7 @@ suckless-tools:
 
 .PHONY: tools
 tools:
-	sudo apt-get install curl dstat iftop tmux xclip
+	sudo apt-get install curl dstat iftop tmux tree xclip
 	curl https://bootstrap.pypa.io/get-pip.py | sudo python
 	sudo ln -s /usr/share/doc/tmux/examples/bash_completion_tmux.sh /etc/bash_completion.d/
 
