@@ -2,6 +2,7 @@
 .bash_history
 .bash_logout
 .bash_profile*
+.emacs.d/elpa/archives
 .gdb_history
 .ido.last
 .indexer_files*
