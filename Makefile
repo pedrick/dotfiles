@@ -34,7 +34,8 @@ PULSE_AUTOSPAWN_DISABLE_CMD=autospawn = no
 @PULSE_AUTOSPAWN_DISABLED=$(shell grep $(PULSE_AUTOSPAWN_DISABLE_CMD) \
 	$(PULSE_CLIENT_CONF_FILE))
 
-PULSE_DAEMON_CONF_FILE=~/.pulse/daemon.conf
+PULSE_DAEMON_CONF_DIR=~/.pulse
+PULSE_DAEMON_CONF_FILE=$(PULSE_DAEMON_CONF_DIR)/daemon.conf
 PULSE_SET_SAMPLE_RATE_LINE=default-sample-rate = 48000
 @PULSE_SAMPLE_RATE_SET=$(shell grep $(PULSE_SET_SAMPLE_RATE_LINE) \
 	$(PULSE_DAEMON_CONF_FILE))
@@ -56,7 +57,8 @@ pulse-enable:
 
 .PHONY: pulse-settings
 pulse-settings:
-ifeq ($(PULSE_SET_SAMPLE_RATE_LINE),)
+	mkdir -p $(PULSE_DAEMON_CONF_DIR)
+ifeq ($(PULSE_SET_SAMPLE_RATE_SET),)
 	echo $(PULSE_SET_SAMPLE_RATE_LINE) | tee -a $(PULSE_DAEMON_CONF_FILE)
 endif
 
@@ -70,7 +72,7 @@ suckless-tools:
 tools:
 	sudo apt-get install curl dstat iftop tmux tree xclip
 	curl https://bootstrap.pypa.io/get-pip.py | sudo python
-	sudo ln -s /usr/share/doc/tmux/examples/bash_completion_tmux.sh /etc/bash_completion.d/
+	-sudo ln -s /usr/share/doc/tmux/examples/bash_completion_tmux.sh /etc/bash_completion.d/
 
 
 .PHONY: xmobar
