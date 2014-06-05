@@ -8,7 +8,8 @@ import XMonad.Util.Run(spawnPipe)
 import System.IO
 
 myManageHook = composeAll [
-    (className =? "Pidgin" <&&> (title =? "Pidgin" <||> title =? "Accounts")) --> doCenterFloat
+    (className =? "Pidgin" <&&> (title =? "Pidgin" <||> title =? "Accounts"
+                                 <||> title =? "Buddy List")) --> doFloat
     , className =? "Gimp" --> doFloat
     , className =? "Unity-2d-panel" --> doIgnore
     , className =? "Unity-2d-launcher" --> doIgnore
