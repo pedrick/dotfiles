@@ -12,6 +12,7 @@
 .emacs.d/elpa/archives
 .gdb_history
 .gconf/
+.ghc
 .gstreamer*
 .ido.last
 .indexer_files*
@@ -26,7 +27,9 @@
 .npm/
 .pip/
 .psql_history*
+.pulse/
 .python-eggs/
+.python_history
 .sqlite_history
 .ssh
 .vim/.netrwhist
