@@ -129,6 +129,11 @@
             (setq tab-width 4)
             (setq python-indent 4)))
 
+; Scss-mode
+(add-hook 'scss-mode-hook
+          (lambda ()
+            (setq scss-compile-at-save nil)))
+
 ; Uniquify
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
