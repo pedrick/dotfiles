@@ -7,6 +7,7 @@
 ;;; Keys
 (global-set-key "\C-w" 'backward-kill-word)
 (global-set-key "\C-x\C-k" 'kill-region)
+(global-set-key "\C-cr" 'revert-buffer)
 
 ;;; Tabs and Spaces
 (setq-default indent-tabs-mode nil)
