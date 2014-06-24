@@ -95,6 +95,10 @@
 (setq evil-motion-state-modes (cons 'flycheck-error-list-mode
                                     evil-motion-state-modes))
 
+; Haskell mode
+(add-hook 'haskell-mode-hook
+          'turn-on-haskell-indentation)
+
 ; Ido mode
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
