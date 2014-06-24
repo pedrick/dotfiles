@@ -6,6 +6,7 @@
 .bash_logout
 .bash_profile*
 .boto
+.cabal
 .cache
 .compiz
 .dbus
@@ -13,6 +14,7 @@
 .gdb_history
 .gconf/
 .ghc
+.gnupg
 .gstreamer*
 .ido.last
 .indexer_files*
@@ -21,6 +23,7 @@
 .kshrc
 .lesshst
 .local
+.localrc
 .macromedia/
 .mozilla/
 .mysql_history
@@ -40,6 +43,7 @@
 .xmonad/xmonad.h
 .xmonad/xmonad.hi
 .xmonad/xmonad.o
+.xsel.log
 .xsession-errors*
 Desktop/
 Documents/
@@ -52,6 +56,7 @@ Pictures
 Public/
 Sites/
 Ubuntu One/
+VirtualBox VMs/
 node_modules/
 tmp/
 vimwiki/
