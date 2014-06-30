@@ -1,7 +1,5 @@
 (package-initialize)
 ;;; Load path
-(add-to-list 'load-path "~/.emacs.d/org-8.0.7")
-(add-to-list 'load-path "~/.emacs.d/evil")
 (add-to-list 'load-path "~/.emacs.d/scripts")
 
 ;;; Keys
@@ -12,6 +10,7 @@
 ;;; Tabs and Spaces
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
+
 
 ;;; Line endings
 (setq buffer-file-coding-system 'utf-8-unix)
@@ -100,11 +99,13 @@
           'turn-on-haskell-indentation)
 
 ; Ido mode
+(require 'ido)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
 
 ; Java mode
+(require 'cc-mode)
 (defun my-java-indent-setup ()
         (c-set-offset 'arglist-intro '+))
 (add-hook 'java-mode-hook
@@ -116,12 +117,27 @@
             (my-java-indent-setup)
             ))
 
+; Magit mode
+(require 'magit)
+(eval-after-load 'magit
+  '(progn
+     (evil-define-key 'normal git-rebase-mode-map
+       (kbd "C-p") 'git-rebase-move-line-up
+       (kbd "C-n") 'git-rebase-move-line-down
+       "e" 'git-rebase-edit
+       "r" 'git-rebase-reword
+       "p" 'git-rebase-pick
+       "dd" 'git-rebase-kill-line
+       "f" 'git-rebase-fixup
+       "s" 'git-rebase-squash)))
+
 ; Makefile mode
 (add-hook 'makefile-mode-hook
           (lambda ()
             (modify-syntax-entry ?= "'")))
 
 ; Org mode
+(require 'org)
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
@@ -129,12 +145,14 @@
 (setq org-log-done 'time)
 
 ; Python mode
+(require 'python)
 (add-hook 'python-mode-hook
           (lambda ()
             (setq tab-width 4)
-            (setq python-indent 4)))
+            (setq python-indent-offset 4)))
 
 ; Scss-mode
+(require 'scss-mode)
 (add-hook 'scss-mode-hook
           (lambda ()
             (setq scss-compile-at-save nil)))
@@ -164,3 +182,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+;;; init.el ends here
