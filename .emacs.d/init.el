@@ -62,6 +62,10 @@
 ; Cython mode
 (require 'cython-mode)
 
+; Ediff
+(require 'ediff)
+(setq ediff-split-window-function 'split-window-horizontally)
+
 ; Evil mode
 (setq evil-want-C-i-jump nil)  ; Don't bind <TAB>
 (require 'evil)
@@ -98,11 +102,24 @@
 (add-hook 'haskell-mode-hook
           'turn-on-haskell-indentation)
 
+; Helm mode
+(require 'helm)
+(helm-mode 1)
+
+
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebihnd tab to do persistent action
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+
+(setq helm-ff-skip-boring-files t)
+(cl-loop for ext in '("\\.pyc$")
+      do (add-to-list 'helm-boring-file-regexp-list "\\.pyc$"))
+
 ; Ido mode
-(require 'ido)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
+;(require 'ido)
+;(setq ido-enable-flex-matching t)
+;(setq ido-everywhere t)
+;(ido-mode 1)
 
 ; Java mode
 (require 'cc-mode)
@@ -157,6 +174,12 @@
           (lambda ()
             (setq scss-compile-at-save nil)))
 
+; Undo-tree mode
+(require 'undo-tree)
+(global-undo-tree-mode)
+(setq undo-tree-visualizer-timestamps t)
+(setq undo-tree-visualizer-diff t)
+
 ; Uniquify
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
@@ -181,5 +204,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(helm-selection ((t (:background "black" :underline t)))))
 ;;; init.el ends here
