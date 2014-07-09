@@ -14,8 +14,10 @@
 .gdb_history
 .gconf/
 .ghc
+.gnome/
 .gnupg
 .gstreamer*
+.histfile
 .ido.last
 .indexer_files*
 .ipython/
@@ -45,6 +47,9 @@
 .xmonad/xmonad.o
 .xsel.log
 .xsession-errors*
+.zcompdump*
+.zsh-update
+.zsh_history
 Desktop/
 Documents/
 Downloads/

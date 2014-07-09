@@ -86,5 +86,10 @@ xmonad-base: suckless-tools
 .PHONY: xmonad
 xmonad: xmonad-base xmobar suckless-tools
 
+.PHONY: zsh
+zsh:
+	sudo apt-get install zsh
+	chsh -s `which zsh`
+
 .PHONY: all
-all: gpg-settings install editors tools lint-js lint-py xmonad
+all: gpg-settings install editors tools lint-js lint-py xmonad zsh
