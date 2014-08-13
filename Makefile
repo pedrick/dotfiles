@@ -43,8 +43,6 @@ PULSE_SET_SAMPLE_RATE_LINE=default-sample-rate = 48000
 .PHONY: pulse-disable
 pulse-disable:
 # See http://www.hecticgeek.com/2012/01/how-to-remove-pulseaudio-use-alsa-ubuntu-linux/
-	sudo apt-get install gnome-alsamixer python-notify python-gtk2 \
-		python-alsaaudio
 ifeq ($(PULSE_AUTOSPAWN_DISABLED),)
 	echo $(PULSE_AUTOSPAWN_DISABLE_CMD) | tee -a $(PULSE_CLIENT_CONF_FILE)
 endif
