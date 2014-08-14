@@ -95,8 +95,8 @@
 (require 'flycheck)
 (global-flycheck-mode 1)
 (setq-default flycheck-flake8-maximum-line-length 80)
-(setq evil-motion-state-modes (cons 'flycheck-error-list-mode
-                                    evil-motion-state-modes))
+(add-hook 'flycheck-error-list-mode-hook
+          '(lambda () (evil-emacs-state 1)))
 
 ; Haskell mode
 (add-hook 'haskell-mode-hook
