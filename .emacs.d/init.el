@@ -11,6 +11,8 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
+; File settings
+(setq auto-mode-alist (cons '("\\.sls$" . yaml-mode) auto-mode-alist))
 
 ;;; Line endings
 (setq buffer-file-coding-system 'utf-8-unix)
