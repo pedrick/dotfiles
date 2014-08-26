@@ -91,3 +91,11 @@ zsh:
 
 .PHONY: all
 all: gpg-settings install editors tools lint-js lint-py xmonad zsh
+
+#
+# One-off commands
+#
+
+.PHONY: browser-default
+browser-default:
+	sudo update-alternatives --config x-www-browser
