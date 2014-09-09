@@ -30,6 +30,7 @@ alias grep='grep --color -I'
 alias hg='history | grep'
 alias ll='ls -l'
 alias please='sudo $(history -p !-1)'
+alias tmux='tmux -2'
 
 #################################################
 # Functions
