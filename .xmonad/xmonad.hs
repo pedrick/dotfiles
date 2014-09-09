@@ -1,12 +1,14 @@
 import XMonad
-import XMonad.Config.Gnome
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Layout.NoBorders
 import XMonad.Util.Run(spawnPipe)
+import XMonad.Util.EZConfig(additionalKeys)
+import Data.Monoid
 import System.IO
 
+myManageHook :: Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll [
     (className =? "Pidgin" <&&> (title =? "Pidgin" <||> title =? "Accounts"
                                  <||> title =? "Buddy List")) --> doFloat
@@ -16,6 +18,7 @@ myManageHook = composeAll [
     , isFullscreen --> doFullFloat
     ]
 
+main :: IO ()
 main = do
     xmoproc <- spawnPipe "/usr/bin/xmobar /home/pedrick/.xmobarrc"
     xmoproc1 <- spawnPipe "/usr/bin/xmobar -x 1 /home/pedrick/.xmobarrc"
