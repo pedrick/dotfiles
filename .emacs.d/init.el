@@ -38,6 +38,10 @@
              (tab-mark 9 [9655 9] [92 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
              ))))
 
+;;; Other UI
+(setq inhibit-splash-screen t)
+(setq inhibit-startup-message t)
+
 ;;; Backup Directory
 (setq
    backup-by-copying t      ; don't clobber symlinks
