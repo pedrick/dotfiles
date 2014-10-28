@@ -64,8 +64,6 @@ endif
 suckless-tools:
 	sudo apt-get install suckless-tools
 
-.PHONY: tmux-completion
-
 .PHONY: tools
 tools:
 	sudo apt-get install curl dstat htop iftop tmux tree xclip
