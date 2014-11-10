@@ -73,6 +73,11 @@
 (column-number-mode 1)
 (setq-default indent-tabs-mode nil)
 
+; Auto-complete mode
+(autoload 'auto-complete-mode "auto-complete-mode" "Auto-complete mode" t)
+(global-auto-complete-mode 1)
+(setq ac-ignore-case nil)
+
 
 ; Cython mode
 (autoload 'cython-mode "cython-mode" "Cython mode" t)
