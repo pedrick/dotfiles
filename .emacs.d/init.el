@@ -79,8 +79,7 @@
 
 ; Ediff
 (autoload 'ediff "ediff" "Ediff mode" t)
-(eval-after-load "ediff"
-  (setq ediff-split-window-function 'split-window-horizontally))
+(setq ediff-split-window-function 'split-window-horizontally)
 
 ; Evil mode
 (autoload 'evil "evil" "Evil mode" t)
