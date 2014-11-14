@@ -11,6 +11,7 @@
 .compiz
 .dbus
 .emacs.d/elpa/archives
+.emacs.d/ac-comphist.dat
 .gdb_history
 .gconf/
 .ghc
@@ -47,6 +48,7 @@
 .xmonad/xmonad.o
 .xsel.log
 .xsession-errors*
+.z
 .zcompdump*
 .zsh-update
 .zsh_history

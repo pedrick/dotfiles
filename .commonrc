@@ -20,6 +20,8 @@ export ALTERNATE_EDITOR=""
 export EDITOR="emacsclient -t"
 export PATH=~/bin:$PATH
 
+source ~/util/z.sh
+
 #################################################
 # Aliases
 #################################################
