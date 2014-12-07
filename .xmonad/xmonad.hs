@@ -7,6 +7,7 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import Data.Monoid
 import System.IO
+import Graphics.X11.ExtraTypes.XF86
 
 myManageHook :: Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll [
@@ -37,4 +38,8 @@ main = do
         , borderWidth        = 2
         , normalBorderColor  = "#cccccc"
         , focusedBorderColor = "#3300ff"
-        }
+        } `additionalKeys`
+            [ ((0 , xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume 0 -- \"-2%\""),
+              ((0 , xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume 0 -- \"+2%\""),
+              ((0 , xF86XK_AudioMute), spawn "pactl set-sink-mute 1 toggle")
+            ]
