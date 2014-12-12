@@ -76,7 +76,9 @@
 ; Auto-complete mode
 (autoload 'auto-complete-mode "auto-complete-mode" "Auto-complete mode" t)
 (global-auto-complete-mode 1)
-(setq ac-ignore-case nil)
+(eval-after-load "auto-complete-mode"
+  '(progn
+     (setq ac-ignore-case nil)))
 
 
 ; Cython mode
@@ -84,7 +86,9 @@
 
 ; Ediff
 (autoload 'ediff "ediff" "Ediff mode" t)
-(setq ediff-split-window-function 'split-window-horizontally)
+(eval-after-load "ediff"
+  '(progn
+     (setq ediff-split-window-function 'split-window-horizontally)))
 
 ; Evil mode
 (autoload 'evil "evil" "Evil mode" t)
@@ -95,6 +99,8 @@
      (setq evil-auto-indent t)
      (define-key evil-insert-state-map "j" #'cofi/maybe-exit)
      (define-key evil-insert-state-map [remap newline] 'evil-ret-and-indent)
+
+     (evil-define-key 'normal org-mode-map (kbd "TAB") #'org-cycle)
 
      (evil-define-command cofi/maybe-exit ()
        :repeat change
@@ -180,7 +186,13 @@
      (global-set-key "\C-cc" 'org-capture)
      (global-set-key "\C-ca" 'org-agenda)
      (global-set-key "\C-cb" 'org-iswitchb)
-     (setq org-log-done 'time)))
+     (setq org-log-done 'time)
+     (setq org-src-fontify-natively t)))
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)
+   (emacs-lisp . t)))
 
 ; Python mode
 (autoload 'python "python" "Python mode" t)
