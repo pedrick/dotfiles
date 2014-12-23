@@ -39,7 +39,7 @@ main = do
         , normalBorderColor  = "#cccccc"
         , focusedBorderColor = "#3300ff"
         } `additionalKeys`
-            [ ((0 , xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume 0 -- \"-2%\""),
-              ((0 , xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume 0 -- \"+2%\""),
-              ((0 , xF86XK_AudioMute), spawn "pactl set-sink-mute 1 toggle")
+            [ ((0 , xF86XK_AudioLowerVolume), spawn "~/util/volume.sh down"),
+              ((0 , xF86XK_AudioRaiseVolume), spawn "~/util/volume.sh up"),
+              ((0 , xF86XK_AudioMute), spawn "~/util/volume.sh mute")
             ]
