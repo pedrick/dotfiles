@@ -38,8 +38,10 @@
 .python_history
 .sqlite_history
 .ssh
+.vagrant.d/
 .vim/.netrwhist
 .viminfo
+.wireshark
 .xmonad/xmonad-*
 .xmonad/xmonad.0
 .xmonad/xmonad.errors
