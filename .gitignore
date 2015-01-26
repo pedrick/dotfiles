@@ -10,11 +10,14 @@
 .cache
 .compiz
 .dbus
-.emacs.d/elpa/archives
 .emacs.d/ac-comphist.dat
-.gdb_history
+.emacs.d/elpa/archives
+.emacs.d/eshell/history
 .gconf/
+.gdb_history
+.gem
 .ghc
+.gimp-2.8/
 .gnome/
 .gnupg
 .gstreamer*
@@ -38,6 +41,7 @@
 .python_history
 .sqlite_history
 .ssh
+.thumbnails/
 .vagrant.d/
 .vim/.netrwhist
 .viminfo
