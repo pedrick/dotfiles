@@ -57,6 +57,7 @@
 ** UI
 *** Colors
 #+BEGIN_SRC emacs-lisp
+(setq solarized-termcolors 256)
 (load-theme 'solarized-light t)
 #+END_SRC
 
