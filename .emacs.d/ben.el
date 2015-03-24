@@ -175,7 +175,8 @@
   '(add-hook 'python-mode-hook
              (lambda ()
                (setq tab-width 4)
-               (setq python-indent-offset 4))))
+               (setq python-indent-offset 4)
+               (flyspell-prog-mode))))
 
 (autoload 'scss-mode "scss-mode" "Scss mode" t)
 (eval-after-load "scss-mode"
