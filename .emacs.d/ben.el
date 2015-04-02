@@ -200,6 +200,11 @@
 (setq uniquify-after-kill-buffer-p t) ; rename after killing uniquified
 (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
 
+(setq yas-snippet-dirs
+      '("~/.emacs.d/snippets/yasnippet-snippets"))
+(setq yas-prompt-functions '(yas-x-prompt yas-dropdown-prompt yas-completing-prompt))
+(yas-global-mode 1)
+
 (setq package-archives '(("org"       . "http://orgmode.org/elpa/")
                          ("gnu"       . "http://elpa.gnu.org/packages/")
                          ("melpa"     . "http://melpa.milkbox.net/packages/")
