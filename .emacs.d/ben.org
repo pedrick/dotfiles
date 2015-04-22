@@ -24,8 +24,6 @@
 *** Tabs and Spaces
 #+BEGIN_SRC emacs-lisp
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq-default indent-tabs-mode nil)
 #+END_SRC
 *** Line Endings
 #+BEGIN_SRC emacs-lisp

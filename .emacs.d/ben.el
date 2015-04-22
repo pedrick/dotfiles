@@ -9,8 +9,6 @@
 (global-set-key "\C-cr" 'revert-buffer)
 
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq-default indent-tabs-mode nil)
 
 (setq buffer-file-coding-system 'utf-8-unix)
 
