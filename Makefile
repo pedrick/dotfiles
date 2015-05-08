@@ -25,10 +25,6 @@ lint-js:
 	sudo apt-get install node npm
 	sudo npm install -g jshint
 
-.PHONY: lint-py
-lint-py: tools
-	sudo pip install flake8
-
 PULSE_CLIENT_CONF_FILE=~/.pulse/client.conf
 PULSE_AUTOSPAWN_DISABLE_CMD=autospawn = no
 @PULSE_AUTOSPAWN_DISABLED=$(shell grep $(PULSE_AUTOSPAWN_DISABLE_CMD) \
@@ -60,6 +56,10 @@ ifeq ($(PULSE_SET_SAMPLE_RATE_SET),)
 	echo $(PULSE_SET_SAMPLE_RATE_LINE) | tee -a $(PULSE_DAEMON_CONF_FILE)
 endif
 
+.PHONY: python-packages
+python-packages: tools
+	sudo pip install flake8 ipython
+
 .PHONY: suckless-tools
 suckless-tools:
 	sudo apt-get install suckless-tools
@@ -88,7 +88,7 @@ zsh:
 	chsh -s `which zsh`
 
 .PHONY: all
-all: gpg-settings install editors tools lint-js lint-py xmonad zsh
+all: gpg-settings install editors tools lint-js python-packages xmonad zsh
 
 #
 # One-off commands
