@@ -62,6 +62,8 @@
   '(progn
      (setq ac-ignore-case nil)))
 
+(global-auto-revert-mode 1)
+
 (autoload 'cython-mode "cython-mode" "Cython mode" t)
 
 (autoload 'ediff "ediff" "Ediff mode" t)

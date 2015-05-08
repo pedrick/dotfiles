@@ -109,6 +109,11 @@ Runs a selected region through Python's JSON formatter.
      (setq ac-ignore-case nil)))
 #+END_SRC
 
+*** Auto-revert mode
+#+BEGIN_SRC emacs-lisp
+  (global-auto-revert-mode 1)
+#+END_SRC
+
 *** Cython mode
 #+BEGIN_SRC emacs-lisp
 (autoload 'cython-mode "cython-mode" "Cython mode" t)
