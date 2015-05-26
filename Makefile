@@ -97,3 +97,18 @@ all: gpg-settings install editors tools lint-js python-packages xmonad zsh
 .PHONY: browser-default
 browser-default:
 	sudo update-alternatives --config x-www-browser
+
+# Installs Intel's ConnMan to replace network manager
+#
+# Once installed, create a file at /var/lib/connman/wifi.config
+#
+# > [service_wifi_8c705a8012f8_4d696e7443686970_managed_psk]
+# > Type = wifi
+# > Sercurity = wpa2
+# > Name = MintChip
+# > Passphrase = passphrase
+# > EOF
+#
+.PHONY: connman
+connman:
+	sudo apt-get install connman
