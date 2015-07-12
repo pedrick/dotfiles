@@ -46,7 +46,8 @@ export ZSH_CUSTOM=$HOME/.zsh-plugins
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ant debian gem postgres python zsh-syntax-highlighting)
+plugins=(git ant debian gem postgres python zsh-syntax-highlighting
+         history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,5 +80,10 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+# bind P and N for EMACS mode
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
 
 source ~/.commonrc
