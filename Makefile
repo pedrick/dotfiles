@@ -32,9 +32,6 @@ PULSE_AUTOSPAWN_DISABLE_CMD=autospawn = no
 
 PULSE_DAEMON_CONF_DIR=~/.pulse
 PULSE_DAEMON_CONF_FILE=$(PULSE_DAEMON_CONF_DIR)/daemon.conf
-PULSE_SET_SAMPLE_RATE_LINE=default-sample-rate = 48000
-@PULSE_SAMPLE_RATE_SET=$(shell grep $(PULSE_SET_SAMPLE_RATE_LINE) \
-	$(PULSE_DAEMON_CONF_FILE))
 
 .PHONY: pulse-disable
 pulse-disable:
@@ -47,14 +44,15 @@ endif
 .PHONY: pulse-enable
 pulse-enable:
 	rm $(PULSE_CLIENT_CONF_FILE)
-	-pulseaudio
+	pulseaudio -D
 
 .PHONY: pulse-settings
 pulse-settings:
 	mkdir -p $(PULSE_DAEMON_CONF_DIR)
-ifeq ($(PULSE_SET_SAMPLE_RATE_SET),)
-	echo $(PULSE_SET_SAMPLE_RATE_LINE) | tee -a $(PULSE_DAEMON_CONF_FILE)
-endif
+	-rm $(PULSE_DAEMON_CONF_FILE)
+	@echo "resample-method = src-sinc-fastest" | tee -a $(PULSE_DAEMON_CONF_FILE)
+	@echo "default-sample-rate = 96000" | tee -a $(PULSE_DAEMON_CONF_FILE)
+	@echo "default-sample-format = s24le" | tee -a $(PULSE_DAEMON_CONF_FILE)
 
 .PHONY: python-packages
 python-packages: tools
