@@ -28,7 +28,6 @@
              (tab-mark 9 [9655 9] [92 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
              ))))
 
-(setq solarized-termcolors 256)
 (load-theme 'solarized-light t)
 
 (setq inhibit-splash-screen t)
@@ -105,6 +104,12 @@
      (setq-default flycheck-flake8-maximum-line-length 80)
      (add-hook 'flycheck-error-list-mode-hook
                '(lambda () (evil-emacs-state 1)))))
+
+(eval-after-load "git-commit-mode"
+  '(progn
+     (add-hook git-commit-mode-hook
+               (lambda ()
+                 (flyspell-prog-mode)))))
 
 (add-hook 'haskell-mode-hook
           'turn-on-haskell-indentation)
@@ -216,8 +221,7 @@
 (setq yas-prompt-functions '(yas-x-prompt yas-dropdown-prompt yas-completing-prompt))
 (yas-global-mode 1)
 
-(setq package-archives '(("org"       . "http://orgmode.org/elpa/")
-                         ("gnu"       . "http://elpa.gnu.org/packages/")
+(setq package-archives '(("gnu"       . "https://elpa.gnu.org/packages/")
                          ("melpa"     . "http://melpa.milkbox.net/packages/")
-                         ("tromey"    . "http://tromey.com/elpa/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+                         ("tromey"    . "https://tromey.com/elpa/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")))
