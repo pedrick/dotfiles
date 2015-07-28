@@ -111,6 +111,9 @@
                (lambda ()
                  (flyspell-prog-mode)))))
 
+(require 'git-messenger)
+(global-set-key (kbd "C-c g") 'git-messenger:popup-message)
+
 (add-hook 'haskell-mode-hook
           'turn-on-haskell-indentation)
 

@@ -178,6 +178,12 @@ Use the sequence 'jk' to exit insert mode.
                    (flyspell-prog-mode)))))
 #+END_SRC
 
+**** Git Messanger Mode
+#+BEGIN_SRC emacs-lisp
+  (require 'git-messenger)
+  (global-set-key (kbd "C-c g") 'git-messenger:popup-message)
+#+END_SRC
+
 *** Haskell Mode
 #+BEGIN_SRC emacs-lisp
 (add-hook 'haskell-mode-hook
