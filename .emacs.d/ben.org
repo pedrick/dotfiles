@@ -169,15 +169,6 @@ Use the sequence 'jk' to exit insert mode.
 #+END_SRC
 
 *** Git
-**** Git Commit Mode
-#+BEGIN_SRC emacs-lisp
-  (eval-after-load "git-commit-mode"
-    '(progn
-       (add-hook git-commit-mode-hook
-                 (lambda ()
-                   (flyspell-prog-mode)))))
-#+END_SRC
-
 **** Git Messanger Mode
 #+BEGIN_SRC emacs-lisp
   (require 'git-messenger)
@@ -227,18 +218,18 @@ Use the sequence 'jk' to exit insert mode.
 
 *** Magit Mode
 #+BEGIN_SRC emacs-lisp
-(autoload 'magit "magit" "Magit mode" t)
-(eval-after-load 'evil
-  '(progn
-     (evil-define-key 'normal git-rebase-mode-map
-       (kbd "C-p") 'git-rebase-move-line-up
-       (kbd "C-n") 'git-rebase-move-line-down
-       "e" 'git-rebase-edit
-       "r" 'git-rebase-reword
-       "p" 'git-rebase-pick
-       "dd" 'git-rebase-kill-line
-       "f" 'git-rebase-fixup
-       "s" 'git-rebase-squash)))
+  (require 'magit)
+  (eval-after-load 'evil
+    '(progn
+       (evil-define-key 'normal git-rebase-mode-map
+         (kbd "C-p") 'git-rebase-move-line-up
+         (kbd "C-n") 'git-rebase-move-line-down
+         "e" 'git-rebase-edit
+         "r" 'git-rebase-reword
+         "p" 'git-rebase-pick
+         "dd" 'git-rebase-kill-line
+         "f" 'git-rebase-fixup
+         "s" 'git-rebase-squash)))
 #+END_SRC
 
 *** Makefile Mode

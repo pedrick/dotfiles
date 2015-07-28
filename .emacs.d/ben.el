@@ -105,12 +105,6 @@
      (add-hook 'flycheck-error-list-mode-hook
                '(lambda () (evil-emacs-state 1)))))
 
-(eval-after-load "git-commit-mode"
-  '(progn
-     (add-hook git-commit-mode-hook
-               (lambda ()
-                 (flyspell-prog-mode)))))
-
 (require 'git-messenger)
 (global-set-key (kbd "C-c g") 'git-messenger:popup-message)
 
@@ -146,7 +140,7 @@
                  (my-java-indent-setup)
                  ))))
 
-(autoload 'magit "magit" "Magit mode" t)
+(require 'magit)
 (eval-after-load 'evil
   '(progn
      (evil-define-key 'normal git-rebase-mode-map
