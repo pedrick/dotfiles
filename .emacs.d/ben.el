@@ -179,7 +179,8 @@
                (lambda ()
                  (setq tab-width 4)
                  (setq python-indent-offset 4)
-                 (flyspell-prog-mode)))
+                 (flyspell-prog-mode)
+                 (rainbow-delimiters-mode)))
      (setq python-shell-interpreter "ipython"
            python-shell-interpreter-args ""
            python-shell-prompt-regexp "In \\[[0-9]+\\]: "
@@ -222,3 +223,15 @@
                          ("melpa"     . "http://melpa.milkbox.net/packages/")
                          ("tromey"    . "https://tromey.com/elpa/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")))
+
+(setq sql-connection-alist
+      '((local (sql-product 'postgres)
+               (sql-port 6432)
+               (sql-server "localhost")
+               (sql-user "marbury")
+               (sql-database "judicata"))
+        (fourcast (sql-product 'postgres)
+                  (sql-port 5432)
+                  (sql-server "10.1.10.4")
+                  (sql-user "marbury")
+                  (sql-database "judicata"))))
