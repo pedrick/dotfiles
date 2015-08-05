@@ -1,4 +1,3 @@
-
 (setq user-full-name "Ben Pedrick"
       user-mail-address "ben.pedrick@gmail.com")
 
@@ -179,7 +178,8 @@
                (lambda ()
                  (setq tab-width 4)
                  (setq python-indent-offset 4)
-                 (flyspell-prog-mode)))
+                 (flyspell-prog-mode)
+                 (rainbow-delimiters-mode)))
      (setq python-shell-interpreter "ipython"
            python-shell-interpreter-args ""
            python-shell-prompt-regexp "In \\[[0-9]+\\]: "
