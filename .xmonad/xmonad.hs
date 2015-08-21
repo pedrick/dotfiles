@@ -23,6 +23,7 @@ main :: IO ()
 main = do
     xmoproc <- spawnPipe "/usr/bin/xmobar /home/pedrick/.xmobarrc"
     xmoproc1 <- spawnPipe "/usr/bin/xmobar -x 1 /home/pedrick/.xmobarrc"
+    spawn "xautolock -time 5 -locker \"gnome-screensaver-command --lock\""
     xmonad $ defaultConfig {
         terminal = "gnome-terminal"
         , manageHook = myManageHook <+> manageDocks <+> manageHook defaultConfig
