@@ -75,7 +75,8 @@ xmobar:
 
 .PHONY: xmonad-base
 xmonad-base: suckless-tools
-	sudo apt-get install xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev
+	sudo apt-get install xmonad libghc-xmonad-dev \
+	    libghc-xmonad-contrib-dev xautolock
 
 .PHONY: xmonad
 xmonad: xmonad-base xmobar suckless-tools
