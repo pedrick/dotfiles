@@ -56,7 +56,7 @@ pulse-settings:
 
 .PHONY: python-packages
 python-packages: tools
-	sudo pip install flake8 ipython
+	sudo pip install flake8 ipython ipdb
 
 .PHONY: suckless-tools
 suckless-tools:
