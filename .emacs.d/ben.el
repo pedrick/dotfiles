@@ -116,16 +116,21 @@
 
 (eval-after-load "helm"
   '(progn
-    ; rebind tab to do persistent action
+     ; rebind tab to do persistent action
      (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
      ; make TAB works in terminal
      (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
      ; list actions using C-z
      (define-key helm-map (kbd "C-z")  'helm-select-action)
 
+     ; Shortcut for helm-resume
+     (define-key helm-map (kbd "C-c h r") 'helm-resume)
+
      (setq helm-ff-skip-boring-files t)
      (cl-loop for ext in '("\\.pyc$")
               do (add-to-list 'helm-boring-file-regexp-list "\\.pyc$"))))
+
+(setq imenu-auto-rescan t)
 
 (defun my-java-indent-setup ()
         (c-set-offset 'arglist-intro '+))
