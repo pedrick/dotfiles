@@ -8,6 +8,7 @@
         user-mail-address "ben.pedrick@gmail.com")
 #+END_SRC
 
+
 ** Load path
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'load-path "~/.emacs.d/scripts")
@@ -295,6 +296,12 @@ Use the sequence 'jk' to exit insert mode.
   '(add-hook 'scss-mode-hook
              (lambda ()
                (setq scss-compile-at-save nil))))
+#+END_SRC
+
+*** Semantic Mode
+#+BEGIN_SRC emacs-lisp
+(semantic-mode 1)
+(global-set-key (kbd "C-c j") 'helm-semantic-or-imenu)
 #+END_SRC
 
 *** smart-mode-line

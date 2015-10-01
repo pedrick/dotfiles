@@ -202,6 +202,9 @@
              (lambda ()
                (setq scss-compile-at-save nil))))
 
+(semantic-mode 1)
+(global-set-key (kbd "C-c j") 'helm-semantic-or-imenu)
+
 (require 'smart-mode-line)
 (sml/setup)
 
