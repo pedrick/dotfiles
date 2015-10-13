@@ -219,6 +219,7 @@ Use the sequence 'jk' to exit insert mode.
                (lambda ()
                  (setq c-basic-offset 4
                        tab-width 4
+                       evil-shift-width 4
                        indent-tabs-mode t)
                  (setq whitespace-display-mappings '())
                  (my-java-indent-setup)
@@ -274,6 +275,7 @@ Use the sequence 'jk' to exit insert mode.
        (add-hook 'python-mode-hook
                  (lambda ()
                    (setq tab-width 4)
+                   (setq evil-shift-width 4)
                    (setq python-indent-offset 4)
                    (flyspell-prog-mode)
                    (rainbow-delimiters-mode)))
@@ -329,6 +331,14 @@ Use the sequence 'jk' to exit insert mode.
 (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
 #+END_SRC
 
+
+*** Yaml Mode
+#+BEGIN_SRC emacs-lisp
+(eval-after-load "yaml-mode"
+  '(add-hook 'yaml-mode-hook
+             (lambda ()
+               (setq evil-shift-width 2))))
+#+END_SRC
 *** Yasnippet
 #+BEGIN_SRC emacs-lisp
   (setq yas-snippet-dirs

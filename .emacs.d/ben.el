@@ -139,6 +139,7 @@
                (lambda ()
                  (setq c-basic-offset 4
                        tab-width 4
+                       evil-shift-width 4
                        indent-tabs-mode t)
                  (setq whitespace-display-mappings '())
                  (my-java-indent-setup)
@@ -182,6 +183,7 @@
      (add-hook 'python-mode-hook
                (lambda ()
                  (setq tab-width 4)
+                 (setq evil-shift-width 4)
                  (setq python-indent-offset 4)
                  (flyspell-prog-mode)
                  (rainbow-delimiters-mode)))
@@ -220,6 +222,11 @@
 (setq uniquify-separator "|")
 (setq uniquify-after-kill-buffer-p t) ; rename after killing uniquified
 (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
+
+(eval-after-load "yaml-mode"
+  '(add-hook 'yaml-mode-hook
+             (lambda ()
+               (setq evil-shift-width 2))))
 
 (setq yas-snippet-dirs
       '("~/.emacs.d/snippets/yasnippet-snippets"))
