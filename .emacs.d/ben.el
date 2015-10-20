@@ -229,7 +229,8 @@
                (setq evil-shift-width 2))))
 
 (setq yas-snippet-dirs
-      '("~/.emacs.d/snippets/yasnippet-snippets"))
+      '("~/.emacs.d/snippets/custom-snippets"
+        "~/.emacs.d/snippets/yasnippet-snippets"))
 (setq yas-prompt-functions '(yas-x-prompt yas-dropdown-prompt yas-completing-prompt))
 (yas-global-mode 1)
 
