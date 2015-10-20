@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: doc
+# key: d
+# --
+"""$1
+
+Args:
+    $2
+Returns:
+    $3
+"""
