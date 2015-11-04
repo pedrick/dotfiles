@@ -5,7 +5,7 @@ help:
 
 .PHONY: editors
 editors:
-	sudo apt-get install vim emacs24
+	sudo apt-get install -y vim emacs24
 
 .PHONY: gpg-settings
 gpg-settings:
@@ -22,7 +22,7 @@ endif
 
 .PHONY: lint-js
 lint-js:
-	sudo apt-get install node npm
+	sudo apt-get install -y nodejs npm
 	sudo npm install -g jshint
 
 PULSE_CLIENT_CONF_FILE=~/.pulse/client.conf
@@ -56,26 +56,27 @@ pulse-settings:
 
 .PHONY: python-packages
 python-packages: tools
+	sudo apt-get install -y python-dev
 	sudo pip install flake8 ipython ipdb
 
 .PHONY: suckless-tools
 suckless-tools:
-	sudo apt-get install suckless-tools
+	sudo apt-get install -y suckless-tools
 
 .PHONY: tools
 tools:
-	sudo apt-get install curl dstat htop iftop iotop tmux tree xclip
+	sudo apt-get install -y curl dstat htop iftop iotop tmux tree xclip
 	sudo python ~/util/get-pip.py
 	-sudo ln -s /usr/share/doc/tmux/examples/bash_completion_tmux.sh /etc/bash_completion.d/
 
 
 .PHONY: xmobar
 xmobar:
-	sudo apt-get install xmobar
+	sudo apt-get install -y xmobar
 
 .PHONY: xmonad-base
 xmonad-base: suckless-tools
-	sudo apt-get install xmonad libghc-xmonad-dev \
+	sudo apt-get install -y xmonad libghc-xmonad-dev \
 	    libghc-xmonad-contrib-dev xautolock
 
 .PHONY: xmonad
@@ -83,7 +84,7 @@ xmonad: xmonad-base xmobar suckless-tools
 
 .PHONY: zsh
 zsh:
-	sudo apt-get install zsh
+	sudo apt-get install -y zsh
 	chsh -s `which zsh`
 
 .PHONY: all
@@ -110,4 +111,4 @@ browser-default:
 #
 .PHONY: connman
 connman:
-	sudo apt-get install connman
+	sudo apt-get install -y connman
