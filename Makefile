@@ -25,6 +25,17 @@ lint-js:
 	sudo apt-get install -y nodejs npm
 	sudo npm install -g jshint
 
+postgres_source_file=/etc/apt/sources.list.d/pgdg.list
+postgres_key_url=https://www.postgresql.org/media/keys/ACCC4CF8.asc
+postgres_repo_url=http://apt.postgresql.org/pub/repos/apt/
+.PHONY: postgresql-9.3
+postgresql-9.3:
+	sudo touch $(postgres_source_file)
+	sudo su -c 'echo "deb $(postgres_repo_url) utopic-pgdg main" >> $(postgres_source_file)'
+	wget --quiet -O - $(postgres_key_url) | sudo apt-key add -
+	sudo apt-get update
+	sudo apt-get install -y postgresql-9.3 postgresql-server-dev-9.3
+
 PULSE_CLIENT_CONF_FILE=~/.pulse/client.conf
 PULSE_AUTOSPAWN_DISABLE_CMD=autospawn = no
 @PULSE_AUTOSPAWN_DISABLED=$(shell grep $(PULSE_AUTOSPAWN_DISABLE_CMD) \
