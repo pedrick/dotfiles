@@ -74,6 +74,10 @@ python-packages: tools
 suckless-tools:
 	sudo apt-get install -y suckless-tools
 
+.PHONY: swap-caps
+swap-caps:
+	sudo sed -i 's/XKBOPTIONS=""/XKBOPTIONS="ctrl:nocaps"/' /etc/default/keyboard
+
 .PHONY: tools
 tools:
 	sudo apt-get install -y curl dstat htop iftop iotop tmux tree xclip
