@@ -1,5 +1,6 @@
 *~
 .ICEauthority
+.Private
 .Xauthority
 .adobe
 .bash_history
@@ -13,6 +14,7 @@
 .emacs.d/ac-comphist.dat
 .emacs.d/elpa/archives
 .emacs.d/eshell/history
+.ecryptfs
 .gconf/
 .gdb_history
 .gem
@@ -41,6 +43,7 @@
 .python_history
 .sqlite_history
 .ssh
+.sudo_as_admin_successful
 .thumbnails/
 .vagrant.d/
 .vim/.netrwhist
