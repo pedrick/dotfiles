@@ -64,6 +64,8 @@
 
 (autoload 'cython-mode "cython-mode" "Cython mode" t)
 
+(setq dired-listing-switches "-alh")
+
 (autoload 'ediff "ediff" "Ediff mode" t)
 (eval-after-load "ediff"
   '(progn

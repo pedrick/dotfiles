@@ -119,6 +119,11 @@ Runs a selected region through Python's JSON formatter.
 (autoload 'cython-mode "cython-mode" "Cython mode" t)
 #+END_SRC
 
+*** Dired
+#+BEGIN_SRC emacs-lisp
+(setq dired-listing-switches "-alh")
+#+END_SRC
+
 *** Ediff
 #+BEGIN_SRC emacs-lisp
 (autoload 'ediff "ediff" "Ediff mode" t)
