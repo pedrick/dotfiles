@@ -148,6 +148,7 @@
                  ))))
 
 (require 'magit)
+(add-hook 'git-commit-mode-hook 'flyspell-mode)
 (eval-after-load 'evil
   '(progn
      (evil-define-key 'normal git-rebase-mode-map
