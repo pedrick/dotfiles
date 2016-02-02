@@ -24,6 +24,8 @@ endif
 lint-js:
 	sudo apt-get install -y nodejs npm
 	sudo npm install -g jshint
+	sudo npm install -g eslint
+	eslint --init
 
 postgres_source_file=/etc/apt/sources.list.d/pgdg.list
 postgres_key_url=https://www.postgresql.org/media/keys/ACCC4CF8.asc

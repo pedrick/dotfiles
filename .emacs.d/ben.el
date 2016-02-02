@@ -147,6 +147,12 @@
                  (my-java-indent-setup)
                  ))))
 
+(add-hook 'js-mode-hook
+          (lambda ()
+            (progn
+              (message "is this working?")
+              (flycheck-select-checker 'javascript-eslint))))
+
 (require 'magit)
 (add-hook 'git-commit-mode-hook 'flyspell-mode)
 (eval-after-load 'evil

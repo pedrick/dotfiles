@@ -8,7 +8,6 @@
         user-mail-address "ben.pedrick@gmail.com")
 #+END_SRC
 
-
 ** Load path
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'load-path "~/.emacs.d/scripts")
@@ -98,9 +97,8 @@ Runs a selected region through Python's JSON formatter.
                              "python -m json.tool" (buffer-name) t)))
 #+END_SRC
 
-** Mode Settings
-
-*** Auto-complete mode
+* Mode Settings
+** Auto-complete mode
 #+BEGIN_SRC emacs-lisp
 (autoload 'auto-complete-mode "auto-complete-mode" "Auto-complete mode" t)
 (global-auto-complete-mode 1)
@@ -109,22 +107,22 @@ Runs a selected region through Python's JSON formatter.
      (setq ac-ignore-case nil)))
 #+END_SRC
 
-*** Auto-revert mode
+** Auto-revert mode
 #+BEGIN_SRC emacs-lisp
   (global-auto-revert-mode 1)
 #+END_SRC
 
-*** Cython mode
+** Cython mode
 #+BEGIN_SRC emacs-lisp
 (autoload 'cython-mode "cython-mode" "Cython mode" t)
 #+END_SRC
 
-*** Dired
+** Dired
 #+BEGIN_SRC emacs-lisp
 (setq dired-listing-switches "-alh")
 #+END_SRC
 
-*** Ediff
+** Ediff
 #+BEGIN_SRC emacs-lisp
 (autoload 'ediff "ediff" "Ediff mode" t)
 (eval-after-load "ediff"
@@ -132,7 +130,7 @@ Runs a selected region through Python's JSON formatter.
      (setq ediff-split-window-function 'split-window-horizontally)))
 #+END_SRC
 
-*** Evil mode
+** Evil mode
 Use the sequence 'jk' to exit insert mode.
 #+BEGIN_SRC emacs-lisp
 (autoload 'evil "evil" "Evil mode" t)
@@ -163,7 +161,7 @@ Use the sequence 'jk' to exit insert mode.
                                                    (list evt))))))))))
 #+END_SRC
 
-*** Flycheck
+** Flycheck
 #+BEGIN_SRC emacs-lisp
 (autoload 'flycheck "flycheck" "Flycheck mode" t)
 (global-flycheck-mode 1)
@@ -174,20 +172,20 @@ Use the sequence 'jk' to exit insert mode.
                '(lambda () (evil-emacs-state 1)))))
 #+END_SRC
 
-*** Git
+** Git
 **** Git Messanger Mode
 #+BEGIN_SRC emacs-lisp
   (require 'git-messenger)
   (global-set-key (kbd "C-c g") 'git-messenger:popup-message)
 #+END_SRC
 
-*** Haskell Mode
+** Haskell Mode
 #+BEGIN_SRC emacs-lisp
 (add-hook 'haskell-mode-hook
           'turn-on-haskell-indentation)
 #+END_SRC
 
-*** Helm Mode
+** Helm Mode
 #+BEGIN_SRC emacs-lisp
 (autoload 'helm "helm" "Helm mode" t)
 (helm-mode 1)
@@ -209,12 +207,12 @@ Use the sequence 'jk' to exit insert mode.
               do (add-to-list 'helm-boring-file-regexp-list "\\.pyc$"))))
 #+END_SRC
 
-*** Imenu
+** Imenu
 #+BEGIN_SRC emacs-lisp
   (setq imenu-auto-rescan t)
 #+END_SRC
 
-*** Java Mode
+** Java Mode
 #+BEGIN_SRC emacs-lisp
 (defun my-java-indent-setup ()
         (c-set-offset 'arglist-intro '+))
@@ -231,7 +229,16 @@ Use the sequence 'jk' to exit insert mode.
                  ))))
 #+END_SRC
 
-*** Magit Mode
+** Javascript Mode
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'js-mode-hook
+            (lambda ()
+              (progn
+                (message "is this working?")
+                (flycheck-select-checker 'javascript-eslint))))
+#+END_SRC
+
+** Magit Mode
 #+BEGIN_SRC emacs-lisp
   (require 'magit)
   (add-hook 'git-commit-mode-hook 'flyspell-mode)
@@ -248,14 +255,14 @@ Use the sequence 'jk' to exit insert mode.
          "s" 'git-rebase-squash)))
 #+END_SRC
 
-*** Makefile Mode
+** Makefile Mode
 #+BEGIN_SRC emacs-lisp
 (add-hook 'makefile-mode-hook
           (lambda ()
             (modify-syntax-entry ?= "'")))
 #+END_SRC
 
-*** Org mode
+** Org mode
 #+BEGIN_SRC emacs-lisp
 (autoload 'org "org" "Org mode" t)
 (eval-after-load "org"
@@ -273,7 +280,7 @@ Use the sequence 'jk' to exit insert mode.
    (emacs-lisp . t)))
 #+END_SRC
 
-*** Python Mode
+** Python Mode
 #+BEGIN_SRC emacs-lisp
   (autoload 'python "python" "Python mode" t)
   (eval-after-load "python"
@@ -297,7 +304,7 @@ Use the sequence 'jk' to exit insert mode.
              "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")))
 #+END_SRC
 
-*** Scss Mode
+** Scss Mode
 #+BEGIN_SRC emacs-lisp
 (autoload 'scss-mode "scss-mode" "Scss mode" t)
 (eval-after-load "scss-mode"
@@ -306,19 +313,19 @@ Use the sequence 'jk' to exit insert mode.
                (setq scss-compile-at-save nil))))
 #+END_SRC
 
-*** Semantic Mode
+** Semantic Mode
 #+BEGIN_SRC emacs-lisp
 (semantic-mode 1)
 (global-set-key (kbd "C-c j") 'helm-semantic-or-imenu)
 #+END_SRC
 
-*** smart-mode-line
+** smart-mode-line
 #+BEGIN_SRC emacs-lisp
 (require 'smart-mode-line)
 (sml/setup)
 #+END_SRC
 
-*** Undo-tree mode
+** Undo-tree mode
 #+BEGIN_SRC emacs-lisp
 (autoload 'undo-tree "undo-tree" "Undo-Tree mode" t)
 (global-undo-tree-mode)
@@ -328,7 +335,7 @@ Use the sequence 'jk' to exit insert mode.
      (setq undo-tree-visualizer-diff t)))
 #+END_SRC
 
-*** Uniquify
+** Uniquify
 #+BEGIN_SRC emacs-lisp
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
@@ -337,15 +344,14 @@ Use the sequence 'jk' to exit insert mode.
 (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
 #+END_SRC
 
-
-*** Yaml Mode
+** Yaml Mode
 #+BEGIN_SRC emacs-lisp
 (eval-after-load "yaml-mode"
   '(add-hook 'yaml-mode-hook
              (lambda ()
                (setq evil-shift-width 2))))
 #+END_SRC
-*** Yasnippet
+** Yasnippet
 Snippet directories are loaded in order. If there are duplicate entries, the
 first one is taken. So if I want to override anything in yasnippet-snippets, I
 can add something of the same name to custom-snippets.
