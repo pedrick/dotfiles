@@ -4,6 +4,11 @@
     branch = auto
     diff = auto
     status = auto
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 [push]
     default = upstream
 [sendemail]
@@ -15,4 +20,4 @@
     name = Ben Pedrick
     email = ben.pedrick@gmail.com
 [core]
-	pager = less -x4
+    pager = diff-highlight | less -r -x4
