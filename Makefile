@@ -126,6 +126,9 @@ browser-default:
 # > Passphrase = passphrase
 # > EOF
 #
+# When installing connman from source, follow instructions in the README to
+# configure and install. If you leave off flags connman may not know where to
+# get configuration.
 .PHONY: connman
 connman:
 	sudo apt-get install -y connman
