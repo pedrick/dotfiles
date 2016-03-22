@@ -127,6 +127,10 @@
      ; Shortcut for helm-resume
      (define-key helm-map (kbd "C-c h r") 'helm-resume)
 
+     ; Use helm for find-files and M-x
+     (global-set-key (kbd "C-x C-f") 'helm-find-files)
+     (global-set-key (kbd "M-x") 'helm-M-x)
+
      (setq helm-ff-skip-boring-files t)
      (cl-loop for ext in '("\\.pyc$")
               do (add-to-list 'helm-boring-file-regexp-list "\\.pyc$"))))
@@ -142,7 +146,7 @@
                  (setq c-basic-offset 4
                        tab-width 4
                        evil-shift-width 4
-                       indent-tabs-mode t)
+                       indent-tabs-mode f)
                  (setq whitespace-display-mappings '())
                  (my-java-indent-setup)
                  ))))
@@ -165,7 +169,8 @@
        "p" 'git-rebase-pick
        "dd" 'git-rebase-kill-line
        "f" 'git-rebase-fixup
-       "s" 'git-rebase-squash)))
+       "s" 'git-rebase-squash)
+     (evil-set-initial-state 'git-rebase-mode 'normal)))
 
 (add-hook 'makefile-mode-hook
           (lambda ()
