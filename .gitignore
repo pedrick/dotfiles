@@ -48,6 +48,7 @@
 .vagrant.d/
 .vim/.netrwhist
 .viminfo
+.vimperator
 .wireshark
 .xmonad/xmonad-*
 .xmonad/xmonad.0
