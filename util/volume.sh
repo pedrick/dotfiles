@@ -9,14 +9,14 @@ function get_volume()
 {
     # ID of sink should be passed as a parameter
     local vols_lines=`pactl list sinks | grep 'Sink\|State\|Volume' | sed -e 'N;N;N;s/\n/ /g'`
-    echo `echo "$vols_lines" | grep "#$1 " | awk '{print $7}'`
+    echo `echo "$vols_lines" | grep "#$1 " | awk '{print $9}'`
 }
 
 function set_volume()
 {
     # Takes parameters sink# and amount
     echo "Setting volume on $1 to $2"
-    pactl set-sink-volume $1 -- "$2"
+    pactl set-sink-volume $1 "$2"
 }
 
 case "$1" in
