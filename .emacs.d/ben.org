@@ -309,6 +309,14 @@ Use the sequence 'jk' to exit insert mode.
              "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")))
 #+END_SRC
 
+** Projectile Mode
+#+BEGIN_SRC emacs-lisp
+  (autoload 'projectile-mode "projectile-mode" "Projectile mode" t)
+  (projectile-global-mode)
+  (setq projectile-completion-system 'helm)
+  (helm-projectile-on)
+#+END_SRC
+
 ** Scss Mode
 #+BEGIN_SRC emacs-lisp
 (autoload 'scss-mode "scss-mode" "Scss mode" t)

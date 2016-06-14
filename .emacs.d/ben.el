@@ -212,6 +212,11 @@
            python-shell-completion-string-code
            "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")))
 
+(autoload 'projectile-mode "projectile-mode" "Projectile mode" t)
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
+
 (autoload 'scss-mode "scss-mode" "Scss mode" t)
 (eval-after-load "scss-mode"
   '(add-hook 'scss-mode-hook
