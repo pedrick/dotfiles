@@ -20,3 +20,9 @@
 -- Autocomplete keywords (like SELECT) in upper-case, even if you started
 -- typing them in lower case.
 \set COMP_KEYWORD_CASE upper
+
+-- Use nicer looking lines on tables
+\pset linestyle unicode
+
+-- Line wrapping for long result values
+\pset format wrapped
