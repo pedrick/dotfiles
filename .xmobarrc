@@ -4,12 +4,12 @@ Config  { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
         , position = Top L 90
         , commands = [ Run Battery ["-t","Batt: <left>% / <timeleft>"] 10
                      , Run Date "%a %b %_d %l:%M" "date" 10
-                     , Run Wireless "wlan0" [] 10
                      , Run StdinReader
                      , Run Com "/home/pedrick/util/volume.sh" ["get"] "vol" 1
+                     , Run Com "/home/pedrick/util/wireless.sh" [] "net" 10
                      ]
         , sepChar = "%"
         , alignSep = "}{"
-        , template = "%StdinReader% }{ %battery% | Vol: %vol% | %wlan0wi% | %date% "
+        , template = "%StdinReader% }{ %battery% | Vol: %vol% | %net% | %date% "
         , lowerOnStart = False
         }
