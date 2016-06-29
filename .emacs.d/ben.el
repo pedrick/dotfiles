@@ -114,6 +114,7 @@
 
 (autoload 'helm "helm" "Helm mode" t)
 (helm-mode 1)
+(helm-flx-mode +1)
 
 (eval-after-load "helm"
   '(progn

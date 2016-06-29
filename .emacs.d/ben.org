@@ -189,6 +189,7 @@ Use the sequence 'jk' to exit insert mode.
 #+BEGIN_SRC emacs-lisp
 (autoload 'helm "helm" "Helm mode" t)
 (helm-mode 1)
+(helm-flx-mode +1)
 
 (eval-after-load "helm"
   '(progn
