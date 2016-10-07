@@ -81,6 +81,10 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Confuses helm-grep
+unalias ag
+
+
 
 # bind P and N for EMACS mode
 bindkey -M emacs '^P' history-substring-search-up
