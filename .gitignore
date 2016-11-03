@@ -11,12 +11,13 @@
 .cache
 .compiz
 .dbus
+.ecryptfs
+.emacs.d/.python-environments
 .emacs.d/ac-comphist.dat
 .emacs.d/elpa/archives
+.emacs.d/eshell/history
 .emacs.d/projectile-bookmarks.eld
 .emacs.d/projectile.cache
-.emacs.d/eshell/history
-.ecryptfs
 .gconf/
 .gdb_history
 .gem

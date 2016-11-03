@@ -54,11 +54,7 @@
     (shell-command-on-region (mark) (point)
                              "python -m json.tool" (buffer-name) t)))
 
-(autoload 'auto-complete-mode "auto-complete-mode" "Auto-complete mode" t)
 (global-auto-complete-mode 1)
-(eval-after-load "auto-complete-mode"
-  '(progn
-     (setq ac-ignore-case nil)))
 
 (global-auto-revert-mode 1)
 
@@ -158,6 +154,9 @@
               (message "is this working?")
               (flycheck-select-checker 'javascript-eslint))))
 
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+
 (require 'magit)
 (add-hook 'git-commit-mode-hook 'flyspell-mode)
 (eval-after-load 'evil
@@ -195,23 +194,24 @@
 (autoload 'python "python" "Python mode" t)
 (eval-after-load "python"
   '(progn
+     (setq
+      tab-width 4
+      evil-shift-width 4
+      python-indent-offset 4
+      ;python-shell-interpreter "ipython"
+      ;python-shell-interpreter-args "-i"
+      python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+      python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+      python-shell-completion-setup-code
+      "from IPython.core.completerlib import module_completion"
+      python-shell-completion-module-string-code
+      "';'.join(module_completion('''%s'''))\n"
+      python-shell-completion-string-code
+      "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
      (add-hook 'python-mode-hook
                (lambda ()
-                 (setq tab-width 4)
-                 (setq evil-shift-width 4)
-                 (setq python-indent-offset 4)
                  (flyspell-prog-mode)
-                 (rainbow-delimiters-mode)))
-     (setq python-shell-interpreter "ipython"
-           python-shell-interpreter-args ""
-           python-shell-prompt-regexp "In \\[[0-9]+\\]: "
-           python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
-           python-shell-completion-setup-code
-           "from IPython.core.completerlib import module_completion"
-           python-shell-completion-module-string-code
-           "';'.join(module_completion('''%s'''))\n"
-           python-shell-completion-string-code
-           "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")))
+                 (rainbow-delimiters-mode)))))
 
 (autoload 'projectile-mode "projectile-mode" "Projectile mode" t)
 (projectile-global-mode)
