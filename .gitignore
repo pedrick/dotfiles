@@ -53,7 +53,7 @@
 .viminfo
 .vimperator
 .wireshark
-.xmonad/xmonad-*
+.xmonad/xmonad-x86_64-linux
 .xmonad/xmonad.0
 .xmonad/xmonad.errors
 .xmonad/xmonad.h
