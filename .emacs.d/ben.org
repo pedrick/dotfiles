@@ -272,20 +272,21 @@ Use the sequence 'jk' to exit insert mode.
 
 ** Org mode
 #+BEGIN_SRC emacs-lisp
-(autoload 'org "org" "Org mode" t)
-(eval-after-load "org"
-  '(progn
-     (global-set-key "\C-cl" 'org-store-link)
-     (global-set-key "\C-cc" 'org-capture)
-     (global-set-key "\C-ca" 'org-agenda)
-     (global-set-key "\C-cb" 'org-iswitchb)
-     (setq org-log-done 'time)
-     (setq org-src-fontify-natively t)))
+  (autoload 'org "org" "Org mode" t)
+  (eval-after-load "org"
+    '(progn
+       (global-set-key "\C-cl" 'org-store-link)
+       (global-set-key "\C-cc" 'org-capture)
+       (global-set-key "\C-ca" 'org-agenda)
+       (global-set-key "\C-cb" 'org-iswitchb)
+       (setq org-log-done 'time)
+       (setq org-src-fontify-natively t)
+       (add-hook 'org-mode-hook 'flyspell-prog-mode)))
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((python . t)
-   (emacs-lisp . t)))
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t)
+     (emacs-lisp . t)))
 #+END_SRC
 
 ** Python Mode

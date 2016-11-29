@@ -184,7 +184,8 @@
      (global-set-key "\C-ca" 'org-agenda)
      (global-set-key "\C-cb" 'org-iswitchb)
      (setq org-log-done 'time)
-     (setq org-src-fontify-natively t)))
+     (setq org-src-fontify-natively t)
+     (add-hook 'org-mode-hook 'flyspell-prog-mode)))
 
 (org-babel-do-load-languages
  'org-babel-load-languages
