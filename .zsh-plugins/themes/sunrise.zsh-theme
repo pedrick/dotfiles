@@ -16,6 +16,9 @@ else
     PROMPTCOLOR="" PREFIX="---";
 fi
 
+# Remove the prefix
+PREFIX=""
+
 local return_code="%(?..%{$R%}%? ↵%{$RESET%})"
 
 # Get the status of the working tree (copied and modified from git.zsh)
