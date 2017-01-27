@@ -43,5 +43,6 @@ main = do
         } `additionalKeys`
             [ ((0 , xF86XK_AudioLowerVolume), spawn "~/util/volume.sh down"),
               ((0 , xF86XK_AudioRaiseVolume), spawn "~/util/volume.sh up"),
-              ((0 , xF86XK_AudioMute), spawn "~/util/volume.sh mute")
+              ((0 , xF86XK_AudioMute), spawn "~/util/volume.sh mute"),
+              ((mod4Mask , xK_l), spawn "gnome-screensaver-command --lock")
             ]
