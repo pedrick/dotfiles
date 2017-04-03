@@ -110,7 +110,6 @@
 
 (autoload 'helm "helm" "Helm mode" t)
 (helm-mode 1)
-(helm-flx-mode +1)
 
 (eval-after-load "helm"
   '(progn
@@ -214,8 +213,7 @@
                  (flyspell-prog-mode)
                  (rainbow-delimiters-mode)))))
 
-(autoload 'projectile-mode "projectile-mode" "Projectile mode" t)
-(projectile-global-mode)
+(projectile-mode)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
