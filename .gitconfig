@@ -9,6 +9,10 @@
     oldHighlight = red bold 52
     newNormal = green bold
     newHighlight = green bold 22
+[core]
+    pager = diff-highlight | less -r -x4
+[pull]
+    ff = only
 [push]
     default = upstream
 [sendemail]
@@ -19,5 +23,3 @@
 [user]
     name = Ben Pedrick
     email = ben.pedrick@gmail.com
-[core]
-    pager = diff-highlight | less -r -x4
