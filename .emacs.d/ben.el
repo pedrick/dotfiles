@@ -157,7 +157,10 @@
 (setq jedi:complete-on-dot t)
 
 (require 'magit)
-(add-hook 'git-commit-mode-hook 'flyspell-mode)
+(add-hook 'git-commit-mode-hook
+          (lambda ()
+            (flyspell-mode)
+            (set-fill-column 72)))
 (eval-after-load 'evil
   '(progn
      (evil-define-key 'normal git-rebase-mode-map
