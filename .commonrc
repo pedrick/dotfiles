@@ -32,7 +32,7 @@ alias emacsclient='emacsclient -t'
 alias ec='emacsclient -t'
 alias grep='grep --color -I'
 alias hg='history | grep'
-alias ll='ls -l'
+alias ll='ls -hl'
 alias please='sudo $(history -p !-1)'
 
 #################################################
