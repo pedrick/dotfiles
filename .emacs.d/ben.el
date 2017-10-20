@@ -172,6 +172,7 @@
        "dd" 'git-rebase-kill-line
        "f" 'git-rebase-fixup
        "s" 'git-rebase-squash)
+     (evil-set-initial-state 'git-commit-mode 'insert)
      (evil-set-initial-state 'git-rebase-mode 'normal)))
 
 (add-hook 'makefile-mode-hook
