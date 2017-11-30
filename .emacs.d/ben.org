@@ -101,6 +101,7 @@ Runs a selected region through Python's JSON formatter.
 ** Auto-complete mode
 #+BEGIN_SRC emacs-lisp
   (global-auto-complete-mode 1)
+  (ac-flyspell-workaround)
 #+END_SRC
 
 ** Auto-revert mode

@@ -55,6 +55,7 @@
                              "python -m json.tool" (buffer-name) t)))
 
 (global-auto-complete-mode 1)
+(ac-flyspell-workaround)
 
 (global-auto-revert-mode 1)
 
