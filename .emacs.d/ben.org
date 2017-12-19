@@ -322,6 +322,7 @@ Use the sequence 'jk' to exit insert mode.
 #+BEGIN_SRC emacs-lisp
   (projectile-mode)
   (setq projectile-completion-system 'helm)
+  (setq projectile-use-git-grep t)
   (helm-projectile-on)
 #+END_SRC
 

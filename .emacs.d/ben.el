@@ -220,6 +220,7 @@
 
 (projectile-mode)
 (setq projectile-completion-system 'helm)
+(setq projectile-use-git-grep t)
 (helm-projectile-on)
 
 (autoload 'scss-mode "scss-mode" "Scss mode" t)
