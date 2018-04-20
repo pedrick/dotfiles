@@ -3,6 +3,7 @@
 .Private
 .Xauthority
 .adobe
+.aws
 .bash_history
 .bash_logout
 .bash_profile*
