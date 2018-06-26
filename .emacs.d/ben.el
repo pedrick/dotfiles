@@ -261,5 +261,4 @@
 
 (setq package-archives '(("gnu"       . "https://elpa.gnu.org/packages/")
                          ("melpa"     . "http://melpa.milkbox.net/packages/")
-                         ("tromey"    . "https://tromey.com/elpa/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")))
