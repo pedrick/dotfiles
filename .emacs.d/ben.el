@@ -219,6 +219,7 @@
                  (rainbow-delimiters-mode)))))
 
 (projectile-mode)
+(define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
 (setq projectile-completion-system 'helm)
 (setq projectile-use-git-grep t)
 (helm-projectile-on)

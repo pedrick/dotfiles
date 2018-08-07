@@ -1,3 +1,4 @@
 (
+ (:id "sha1:85457c729378cc93c732b6a3941c8e4f9c2e60f3" :fingerprint "sha1:ab:a6:d7:6a:b3:d3:63:fa:19:0d:65:41:60:23:6e:ef:d3:2a:46:dc" :host "marmalade-repo.org:443" :conditions (:expired :unknown-ca :invalid))
  (:id "sha1:153b3afa70df45c1bae2bd88c7b45898c9cf7849" :fingerprint "sha1:4f:4b:51:aa:46:39:59:5c:c5:81:22:88:9a:53:b4:4d:34:b2:9f:fb" :host "tromey.com:443" :conditions (:no-host-match))
 )
