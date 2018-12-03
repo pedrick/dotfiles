@@ -14,6 +14,7 @@
 .cabal
 .cache
 .compiz
+.config
 .config/
 .cups/
 .dbus
@@ -39,6 +40,7 @@
 .indexer_files*
 .ipython/
 .irb_history
+.jupyter/
 .kshrc
 .lesshst
 .local
@@ -92,4 +94,4 @@ VirtualBox VMs/
 node_modules/
 tmp/
 vimwiki/
-vimwiki_html/
+vimwiki_html/ 

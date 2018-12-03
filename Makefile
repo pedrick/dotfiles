@@ -5,7 +5,7 @@ help:
 
 .PHONY: editors
 editors:
-	sudo apt-get install -y vim emacs24
+	sudo apt-get install -y vim emacs25
 
 .PHONY: gpg-settings
 gpg-settings:
@@ -30,13 +30,13 @@ lint-js:
 postgres_source_file=/etc/apt/sources.list.d/pgdg.list
 postgres_key_url=https://www.postgresql.org/media/keys/ACCC4CF8.asc
 postgres_repo_url=http://apt.postgresql.org/pub/repos/apt/
-.PHONY: postgresql-9.3
-postgresql-9.3:
+.PHONY: postgresql-10
+postgresql-10:
 	sudo touch $(postgres_source_file)
 	sudo su -c 'echo "deb $(postgres_repo_url) utopic-pgdg main" >> $(postgres_source_file)'
 	wget --quiet -O - $(postgres_key_url) | sudo apt-key add -
 	sudo apt-get update
-	sudo apt-get install -y postgresql-9.3 postgresql-server-dev-9.3
+	sudo apt-get install -y postgresql-10 postgresql-server-dev-10
 
 PULSE_CLIENT_CONF_FILE=~/.pulse/client.conf
 PULSE_AUTOSPAWN_DISABLE_CMD=autospawn = no
@@ -70,7 +70,7 @@ pulse-settings:
 .PHONY: python-packages
 python-packages: tools
 	sudo apt-get install -y python-dev
-	sudo pip install flake8 ipython ipdb
+	sudo pip install flake8 gprof2dot ipython ipdb
 
 .PHONY: suckless-tools
 suckless-tools:
@@ -82,7 +82,7 @@ swap-caps:
 
 .PHONY: tools
 tools:
-	sudo apt-get install -y curl dstat htop iftop iotop tmux tree xclip
+	sudo apt-get install -y curl dstat graphviz htop iftop iotop tmux tree xclip
 	sudo python ~/util/get-pip.py
 	-sudo ln -s /usr/share/doc/tmux/examples/bash_completion_tmux.sh /etc/bash_completion.d/
 
