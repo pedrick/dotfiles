@@ -14,8 +14,10 @@
 .cabal
 .cache
 .compiz
+.config/
 .cups/
 .dbus
+.dmrc
 .ecryptfs
 .emacs.d/.python-environments
 .emacs.d/ac-comphist.dat
@@ -23,6 +25,7 @@
 .emacs.d/eshell/history
 .emacs.d/projectile-bookmarks.eld
 .emacs.d/projectile.cache
+.esd_auth
 .gconf/
 .gdb_history
 .gem
@@ -44,7 +47,10 @@
 .mozilla/
 .mysql_history
 .npm/
+.password-store/
+.pgpass
 .pip/
+.pki/
 .psql_history*
 .pulse/
 .python-eggs/

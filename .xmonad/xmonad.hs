@@ -25,10 +25,12 @@ main = do
     xmoproc1 <- spawnPipe "/usr/bin/xmobar -x 1 /home/pedrick/.xmobarrc"
     spawn "xautolock -time 5 -locker \"gnome-screensaver-command --lock\""
     xmonad $ def {
-        terminal = "gnome-terminal"
+        terminal = "terminator"
         , handleEventHook = docksEventHook <+> handleEventHook def
         , manageHook = myManageHook <+> manageHook def
-        , layoutHook = smartBorders . avoidStruts $ smartSpacing 10 $ layoutHook def
+        , layoutHook = smartBorders . avoidStruts
+          $ spacingRaw True (Border 0 0 0 0) False (Border 10 10 10 10) True
+          $ layoutHook def
         , logHook = dynamicLogWithPP xmobarPP
                     { ppOutput = hPutStrLn xmoproc
                     , ppTitle = xmobarColor "green" "" . shorten 50

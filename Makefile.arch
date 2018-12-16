@@ -1,0 +1,95 @@
+# install_command:=sudo apt-get install -y
+install_command:=sudo pacman -S --noconfirm
+
+.PHONY: help
+help:
+	@echo "Available Commands\n------------------"
+	@make -qp | awk -F':' '/^[a-zA-Z0-9][^$$#\/\t=]*:([^=]|$$)/ {split($$1,A,/ /);for(i in A)print A[i]}' | grep -v Makefile
+
+.PHONY: editors
+editors:
+	$(install_command) vim emacs
+
+.PHONY: gpg-settings
+gpg-settings:
+	gsettings set org.gnome.crypto.cache gpg-cache-method 'idle'
+	gsettings set org.gnome.crypto.cache gpg-cache-ttl 300
+
+home_dir=$(echo ~)
+current_dir=$(pwd)
+.PHONY: install
+install:
+ifneq ($(current_dir),$(home_dir))
+	rsync --exclude ".git/" --exclude "Makefile" -av . ~
+endif
+
+.PHONY: lint-js
+lint-js:
+	$(install_command) nodejs npm
+	sudo npm install -g jshint
+	sudo npm install -g eslint
+
+.PHONY: postgresql
+postgresql:
+	sudo pacman -U --noconfirm https://archive.archlinux.org/packages/p/postgresql/postgresql-10.5-3-x86_64.pkg.tar.xz https://archive.archlinux.org/packages/p/postgresql-libs/postgresql-libs-10.5-3-x86_64.pkg.tar.xz
+
+.PHONY: python-packages
+python-packages: tools
+	sudo pip install diff-highlight flake8 ipython ipdb
+
+.PHONY: swap-caps
+swap-caps:
+	sudo sed -i 's/XKBOPTIONS=""/XKBOPTIONS="ctrl:nocaps"/' /etc/default/keyboard
+
+.PHONY: submodules
+	git submodule init
+	git submodule update
+
+.PHONY: tools
+tools:
+	$(install_command) curl dstat htop iftop iotop python-pip tmux tree terminator xclip
+
+.PHONY: xmobar
+xmobar:
+	$(install_command) xmobar
+
+.PHONY: xmonad-base
+xmonad-base:
+	$(install_command) xmonad xmonad-contrib xautolock dmenu
+
+.PHONY: xmonad
+xmonad: xmonad-base xmobar
+
+.PHONY: zsh
+zsh:
+	$(install_command) zsh
+	chsh -s `which zsh`
+
+.PHONY: all
+all: gpg-settings install editors tools lint-js python-packages xmonad zsh
+
+#
+# One-off commands
+#
+
+.PHONY: browser-default
+browser-default:
+	sudo update-alternatives --config x-www-browser
+
+# Installs Intel's ConnMan to replace network manager
+#
+# Once installed, create a file at /var/lib/connman/wifi.config
+#
+# > [service_wifi_8c705a8012f8_4d696e7443686970_managed_psk]
+# > Type = wifi
+# > Sercurity = wpa2
+# > Name = MintChip
+# > Passphrase = passphrase
+# > EOF
+#
+# When installing connman from source, follow instructions in the README to
+# configure and install. If you leave off flags connman may not know where to
+# get configuration.
+.PHONY: connman
+connman:
+	sudo apt-get install -y connman
