@@ -64,13 +64,17 @@ xmonad-base:
 .PHONY: xmonad
 xmonad: xmonad-base xmobar
 
+.PHONY: xorg
+xorg:
+	$(install_command) xf86-input-synaptics
+
 .PHONY: zsh
 zsh:
 	$(install_command) zsh
 	chsh -s `which zsh`
 
 .PHONY: all
-all: gpg-settings install editors tools lint-js python-packages xmonad zsh
+all: gpg-settings install editors tools lint-js python-packages xmonad xorg zsh
 
 #
 # One-off commands

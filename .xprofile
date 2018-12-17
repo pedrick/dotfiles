@@ -1,2 +1,10 @@
 #!/bin/bash
 ~/.fehbg &
+
+# Setup touchpad
+# Enable horizontal scroll
+synclient HorizTwoFingerScroll=1
+
+# Flip scroll direction (natural scrolling)
+synclient VertScrollDelta=-113
+synclient HorizScrollDelta=-113
