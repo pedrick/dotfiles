@@ -55,7 +55,7 @@ xmobar:
 
 .PHONY: xmonad-base
 xmonad-base:
-	$(install_command) xmonad xmonad-contrib xautolock dmenu
+	$(install_command) xmonad xmonad-contrib xautolock dmenu stalonetray
 
 .PHONY: xmonad
 xmonad: xmonad-base xmobar

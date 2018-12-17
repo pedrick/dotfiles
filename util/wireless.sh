@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DEVICE=wlp3s0
+DEVICE=`ip link | grep "state UP" | awk '{print $2}' | rev | cut -c "2-" | rev`
 
 iwconfig $DEVICE 2>&1 | grep -q no\ wireless\ extensions\. && {
     echo wired
