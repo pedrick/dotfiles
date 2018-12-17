@@ -10,6 +10,10 @@ help:
 editors:
 	$(install_command) vim emacs
 
+.PHONY: feh
+feh:
+	$(install_command) feh
+
 .PHONY: gpg-settings
 gpg-settings:
 	gsettings set org.gnome.crypto.cache gpg-cache-method 'idle'
