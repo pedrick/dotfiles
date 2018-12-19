@@ -1,5 +1,5 @@
 # install_command:=sudo apt-get install -y
-install_command:=sudo pacman -S --noconfirm
+install_command:=sudo pacman -S --noconfirm --needed
 
 .PHONY: help
 help:
@@ -13,6 +13,10 @@ editors:
 .PHONY: feh
 feh:
 	$(install_command) feh
+
+.PHONY: gnome
+gnome:
+	$(install_command) gnome
 
 .PHONY: gpg-settings
 gpg-settings:
@@ -32,6 +36,17 @@ lint-js:
 	$(install_command) nodejs npm
 	sudo npm install -g jshint
 	sudo npm install -g eslint
+
+ldm-gtk-greeter-conf=/etc/lightdm/lightdm-gtk-greeter.conf
+
+.PHONY: lightdm
+lightdm:
+	$(install_command) lightdm lightdm-gtk-greeter
+	sudo systemctl enable lightdm.service
+ifeq ($(shell test -f $(ldm-gtk-greeter-conf).bak; echo $$?), 1)
+	sudo cp $(ldm-gtk-greeter-conf) $(ldm-gtk-greeter-conf).bak
+endif
+	sudo cp ~/conf/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
 
 .PHONY: postgresql
 postgresql:
@@ -74,7 +89,7 @@ zsh:
 	chsh -s `which zsh`
 
 .PHONY: all
-all: gpg-settings install editors tools lint-js python-packages xmonad xorg zsh
+all: lightdm gnome gpg-settings install editors tools lint-js python-packages xmonad xorg zsh
 
 #
 # One-off commands
