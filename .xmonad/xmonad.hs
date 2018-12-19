@@ -23,7 +23,7 @@ main :: IO ()
 main = do
     xmoproc <- spawnPipe "/usr/bin/xmobar /home/pedrick/.xmobarrc"
     xmoproc1 <- spawnPipe "/usr/bin/xmobar -x 1 /home/pedrick/.xmobarrc"
-    spawn "xautolock -time 5 -locker \"gnome-screensaver-command --lock\""
+    spawn "xautolock -time 5 -locker \"dm-tool switch-to-greeter\""
     xmonad $ def {
         terminal = "terminator"
         , handleEventHook = docksEventHook <+> handleEventHook def
@@ -46,7 +46,7 @@ main = do
             [ ((0 , xF86XK_AudioLowerVolume), spawn "~/util/volume.sh down"),
               ((0 , xF86XK_AudioRaiseVolume), spawn "~/util/volume.sh up"),
               ((0 , xF86XK_AudioMute), spawn "~/util/volume.sh mute"),
-              ((mod4Mask , xK_l), spawn "gnome-screensaver-command --lock"),
+              ((mod4Mask , xK_l), spawn "dm-tool switch-to-greeter"),
               ((mod4Mask , xK_Print), spawn "gnome-screenshot"),
               ((mod4Mask .|. shiftMask, xK_Print), spawn "gnome-screenshot -i")
             ]
