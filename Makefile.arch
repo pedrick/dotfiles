@@ -54,7 +54,7 @@ postgresql:
 
 .PHONY: python-packages
 python-packages: tools
-	sudo pip install diff-highlight flake8 ipython ipdb
+	sudo pip install diff-highlight flake8 gprof2dot ipython ipdb
 
 .PHONY: swap-caps
 swap-caps:
@@ -66,7 +66,7 @@ swap-caps:
 
 .PHONY: tools
 tools:
-	$(install_command) curl dstat htop iftop iotop python-pip tmux tree terminator xclip
+	$(install_command) curl dstat graphviz htop iftop iotop python-pip tmux tree terminator xclip
 
 .PHONY: xmobar
 xmobar:
