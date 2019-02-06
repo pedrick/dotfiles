@@ -27,6 +27,7 @@ source ~/util/z.sh
 # Aliases
 #################################################
 
+alias dstat='dstat --bw'
 alias emacs='emacs -nw'
 alias emacsclient='emacsclient -t'
 alias ec='emacsclient -t'
