@@ -1,15 +1,46 @@
-Config  { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
-        , bgColor = "black"
-        , fgColor = "grey"
-        , position = Top L 90
-        , commands = [ Run Battery ["-t","Batt: <left>% / <timeleft>"] 10
-                     , Run Date "%a %b %_d %l:%M" "date" 10
-                     , Run StdinReader
-                     , Run Com "/home/pedrick/util/volume.sh" ["get"] "vol" 1
-                     , Run Com "/home/pedrick/util/wireless.sh" [] "net" 10
-                     ]
-        , sepChar = "%"
-        , alignSep = "}{"
-        , template = "%StdinReader% }{ %battery% | Vol: %vol% | %net% | %date% "
-        , lowerOnStart = False
-        }
+Config  {
+    -- appearance
+      font = "xft:Inconsolata:size=10:style=Bold:antialias=true"
+    , bgColor = "#002b36"
+    , fgColor = "#93a1a1"
+    , position = TopSize C 100 22
+    , textOffset = 15
+    , border = BottomB
+    , borderWidth = 2
+    -- , borderColor = "#93a1a1"
+    , borderColor = "#268bd2"
+
+    -- layout
+    , sepChar = "%"
+    , alignSep = "}{"
+    , template = "%StdinReader% }{ %battery% | Vol: %vol% | %net% | %date% "
+
+    -- general behavior
+    , lowerOnStart = True
+    , allDesktops = True
+
+    -- plugins
+    , commands =
+      [
+          Run Battery [
+            "--template" , "Batt: <acstatus>"
+            , "--Low"      , "10"        -- units: %
+            , "--High"     , "80"        -- units: %
+            , "--low"      , "#de935f"
+            , "--normal"   , "#b58900"
+            , "--high"     , "#859900"
+
+            , "--" -- battery specific options
+            -- discharging status
+            , "-o"	, "<left>% <fc=#268bd2><timeleft></fc>"
+            -- AC "on" status
+            , "-O"	, "<fc=#b58900>LOAD</fc> <fc=#268bd2><timeleft></fc>"
+            -- charged status
+            , "-i"	, "<fc=#657b83>FULL</fc>"
+        ] 10
+        , Run Date "%a <fc=#268bd2>%b %-d</fc> %l:%M" "date" 10
+        , Run StdinReader
+        , Run Com "/home/pedrick/util/volume.sh" ["get"] "vol" 1
+        , Run Com "/home/pedrick/util/wireless.sh" [] "net" 10
+      ]
+    }
