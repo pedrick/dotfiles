@@ -41,6 +41,7 @@
 .ipython/
 .irb_history
 .jupyter/
+.keras/
 .kshrc
 .lesshst
 .local
@@ -49,6 +50,7 @@
 .mozilla/
 .mysql_history
 .npm/
+.nv/
 .password-store/
 .pgpass
 .pip/

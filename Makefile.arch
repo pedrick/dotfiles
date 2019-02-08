@@ -6,6 +6,12 @@ help:
 	@echo "Available Commands\n------------------"
 	@make -qp | awk -F':' '/^[a-zA-Z0-9][^$$#\/\t=]*:([^=]|$$)/ {split($$1,A,/ /);for(i in A)print A[i]}' | grep -v Makefile
 
+.PHONY: cuda
+cuda:
+	$(install_command) bbswitch-dkms bumblebee cuda cudnn linux-lts-headers nvidia nvidia-lts nvidia-libgl nvidia-settings opencl-nvidia Xf86-video-intel
+	sudo gpasswd -a $(shell whoami) bumblebee
+	sudo systemctl enable bumblebeed.service
+
 .PHONY: editors
 editors:
 	$(install_command) vim emacs
