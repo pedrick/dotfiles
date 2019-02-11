@@ -59,6 +59,12 @@ postgresql:
 	sudo pacman -U --noconfirm https://archive.archlinux.org/packages/p/postgresql/postgresql-10.5-3-x86_64.pkg.tar.xz https://archive.archlinux.org/packages/p/postgresql-libs/postgresql-libs-10.5-3-x86_64.pkg.tar.xz
 	cd /usr/lib && sudo ln -s libreadline.so.8 libreadline.so.7
 
+.PHONY: printing
+printing:
+	$(install_command) avahi cups nss-mdns
+	sudo systemctl enable avahi-daemon.service
+	sudo systemctl enable org.cups.cupsd.service
+
 .PHONY: python-packages
 python-packages: tools
 	sudo pip install diff-highlight flake8 gprof2dot ipython ipdb
@@ -96,7 +102,8 @@ zsh:
 	chsh -s `which zsh`
 
 .PHONY: all
-all: lightdm gnome gpg-settings install editors tools lint-js python-packages xmonad xorg zsh
+all: lightdm gnome gpg-settings install editors tools lint-js printing python-packages xmonad xorg zsh \
+    swap-caps
 
 #
 # One-off commands
