@@ -41,6 +41,6 @@ Config  {
         , Run Date "%a <fc=#268bd2>%b %-d</fc> %l:%M" "date" 10
         , Run StdinReader
         , Run Com "/home/pedrick/util/volume.sh" ["get"] "vol" 1
-        , Run Com "/home/pedrick/util/wireless.sh" [] "net" 10
+        , Run Com "/home/pedrick/util/wireless.py" [] "net" 10
       ]
     }
