@@ -79,7 +79,7 @@ swap-caps:
 
 .PHONY: tools
 tools:
-	$(install_command) curl dstat graphviz htop iftop iotop python-pip tmux tree terminator xclip
+	$(install_command) arandr curl dstat graphviz htop iftop iotop python-pip tmux tree terminator xclip
 
 .PHONY: xmobar
 xmobar:
@@ -104,29 +104,3 @@ zsh:
 .PHONY: all
 all: lightdm gnome gpg-settings install editors tools lint-js printing python-packages xmonad xorg zsh \
     swap-caps
-
-#
-# One-off commands
-#
-
-.PHONY: browser-default
-browser-default:
-	sudo update-alternatives --config x-www-browser
-
-# Installs Intel's ConnMan to replace network manager
-#
-# Once installed, create a file at /var/lib/connman/wifi.config
-#
-# > [service_wifi_8c705a8012f8_4d696e7443686970_managed_psk]
-# > Type = wifi
-# > Sercurity = wpa2
-# > Name = MintChip
-# > Passphrase = passphrase
-# > EOF
-#
-# When installing connman from source, follow instructions in the README to
-# configure and install. If you leave off flags connman may not know where to
-# get configuration.
-.PHONY: connman
-connman:
-	sudo apt-get install -y connman

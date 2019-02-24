@@ -1,8 +1,17 @@
 module.exports = {
+    "globals": {
+        "define": "readonly",
+        "require": "readonly"
+    },
     "rules": {
         "indent": [
             2,
-            4
+            4,
+            {
+                "CallExpression": {
+                    "arguments": "off",
+                }
+            },
         ],
         "quotes": [
             2,
