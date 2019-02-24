@@ -21,6 +21,11 @@ def _get_device():
 
 def main():
     device = _get_device()
+
+    if device is None:
+        print("<fc=%s>Not connected</fc>" % SolarizedColors.yellow)
+        return
+
     device_info = subprocess.check_output(['iwconfig', device]).decode('utf8')
     strength = None
     essid = None
