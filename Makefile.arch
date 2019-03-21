@@ -57,7 +57,7 @@ endif
 .PHONY: postgresql
 postgresql:
 	sudo pacman -U --noconfirm https://archive.archlinux.org/packages/p/postgresql/postgresql-10.5-3-x86_64.pkg.tar.xz https://archive.archlinux.org/packages/p/postgresql-libs/postgresql-libs-10.5-3-x86_64.pkg.tar.xz
-	cd /usr/lib && sudo ln -s libreadline.so.8 libreadline.so.7
+	-cd /usr/lib && sudo ln -s libreadline.so.8 libreadline.so.7
 
 .PHONY: printing
 printing:
@@ -79,7 +79,7 @@ swap-caps:
 
 .PHONY: tools
 tools:
-	$(install_command) arandr curl dstat graphviz htop iftop iotop python-pip tmux tree terminator xclip
+	$(install_command) arandr bind-tools curl dstat graphviz htop iftop iotop python-pip tmux tree terminator whois xclip
 
 .PHONY: xmobar
 xmobar:
