@@ -61,7 +61,7 @@ postgresql:
 
 .PHONY: printing
 printing:
-	$(install_command) avahi cups nss-mdns
+	$(install_command) avahi cups hplip nss-mdns
 	sudo systemctl enable avahi-daemon.service
 	sudo systemctl enable org.cups.cupsd.service
 
