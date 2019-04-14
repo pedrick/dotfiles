@@ -81,6 +81,11 @@ swap-caps:
 tools:
 	$(install_command) arandr bind-tools curl dstat graphviz htop iftop iotop python-pip tmux tree terminator whois xclip
 
+# Use virtualbox-host-modules-dkms becaues I use the linux-lts kernel. I could install virtualbox-host-modules-arch if using the regular linux kernel.
+.PHONY: virtualbox
+virtualbox:
+	$(install_command) virtualbox virtualbox-guest-iso virtualbox-host-modules-dkms
+
 .PHONY: xmobar
 xmobar:
 	$(install_command) xmobar
