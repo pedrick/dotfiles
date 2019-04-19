@@ -1,6 +1,9 @@
 # install_command:=sudo apt-get install -y
 install_command:=sudo pacman -S --noconfirm --needed
 
+package_dir:=~/packages
+icu_63_package:=icu-63.1-2-x86_64.pkg.tar.xz
+
 .PHONY: help
 help:
 	@echo "Available Commands\n------------------"
@@ -29,6 +32,14 @@ gpg-settings:
 	gsettings set org.gnome.crypto.cache gpg-cache-method 'idle'
 	gsettings set org.gnome.crypto.cache gpg-cache-ttl 300
 
+icu_extract_dir:=/tmp/icu.63
+.PHONY: icu.63
+icu.63:
+	mkdir $(icu_extract_dir)
+	cd $(icu_extract_dir) && tar -xf $(package_dir)/$(icu_63_package)
+	sudo cp $(icu_extract_dir)/usr/lib/libicu*.63.1 /usr/lib
+	rm -r $(icu_extract_dir)
+
 home_dir=$(echo ~)
 current_dir=$(pwd)
 .PHONY: install
@@ -55,9 +66,9 @@ endif
 	sudo cp ~/conf/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
 
 .PHONY: postgresql
-postgresql:
+postgresql: icu.63
 	sudo pacman -U --noconfirm https://archive.archlinux.org/packages/p/postgresql/postgresql-10.5-3-x86_64.pkg.tar.xz https://archive.archlinux.org/packages/p/postgresql-libs/postgresql-libs-10.5-3-x86_64.pkg.tar.xz
-	-cd /usr/lib && sudo ln -s libreadline.so.8 libreadline.so.7
+	@-cd /usr/lib && sudo ln -s libreadline.so.8 libreadline.so.7
 
 .PHONY: printing
 printing:

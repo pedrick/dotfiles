@@ -19,6 +19,7 @@
 .cups/
 .dbus
 .dmrc
+.docker/
 .ecryptfs
 .emacs.d/.python-environments
 .emacs.d/ac-comphist.dat
