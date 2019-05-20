@@ -86,7 +86,7 @@ main = do
         , layoutHook = myLayoutHook
         , startupHook = myStartupHook
         , logHook = myLogHook xmoproc xmoproc1
-        , borderWidth        = 4
+        , borderWidth        = 1
         , normalBorderColor  = solarizedBase2
         , focusedBorderColor = solarizedBlue
         } `additionalKeys` myKeys
