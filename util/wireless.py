@@ -26,6 +26,10 @@ def main():
         print("<fc=%s>Not connected</fc>" % SolarizedColors.yellow)
         return
 
+    if device.startswith('en'):
+        print('Wired')
+        return
+
     device_info = subprocess.check_output(['iwconfig', device]).decode('utf8')
     strength = None
     essid = None
