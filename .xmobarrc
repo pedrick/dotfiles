@@ -34,7 +34,7 @@ Config  {
             -- discharging status
             , "-o"	, "<left>% <fc=#268bd2><timeleft></fc>"
             -- AC "on" status
-            , "-O"	, "<fc=#b58900>LOAD</fc> <fc=#268bd2><timeleft></fc>"
+            , "-O"	, "+<left>% <fc=#268bd2><timeleft></fc>"
             -- charged status
             , "-i"	, "<fc=#657b83>FULL</fc>"
         ] 10
