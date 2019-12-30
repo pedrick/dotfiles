@@ -52,7 +52,8 @@ endif
 lint-js:
 	$(install_command) nodejs npm
 	sudo npm install -g jshint
-	sudo npm install -g eslint
+	sudo npm install -g eslint@4
+	sudo npm install -g babel-eslint
 
 ldm-gtk-greeter-conf=/etc/lightdm/lightdm-gtk-greeter.conf
 
