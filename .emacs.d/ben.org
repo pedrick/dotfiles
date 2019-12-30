@@ -389,6 +389,5 @@ can add something of the same name to custom-snippets.
 * Package settings
 #+BEGIN_SRC emacs-lisp
 (setq package-archives '(("gnu"       . "https://elpa.gnu.org/packages/")
-                         ("melpa"     . "http://melpa.milkbox.net/packages/")
-                         ("marmalade" . "https://marmalade-repo.org/packages/")))
+                         ("melpa"     . "http://melpa.milkbox.net/packages/")))
 #+END_SRC

@@ -261,5 +261,4 @@
 (yas-global-mode 1)
 
 (setq package-archives '(("gnu"       . "https://elpa.gnu.org/packages/")
-                         ("melpa"     . "http://melpa.milkbox.net/packages/")
-                         ("marmalade" . "https://marmalade-repo.org/packages/")))
+                         ("melpa"     . "http://melpa.milkbox.net/packages/")))
