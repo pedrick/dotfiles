@@ -10,7 +10,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (yaml-mode helm yasnippet solarized-theme smart-mode-line rainbow-delimiters org-ac org magit less-css-mode jedi helm-projectile haskell-mode haml-mode go-mode gitignore-mode gitconfig-mode git-messenger flx f evil dockerfile-mode cython-mode color-theme coffee-mode)))
+    (scss-mode yaml-mode helm yasnippet solarized-theme smart-mode-line rainbow-delimiters org-ac org magit less-css-mode jedi helm-projectile haskell-mode haml-mode go-mode gitignore-mode gitconfig-mode git-messenger flx f evil dockerfile-mode cython-mode color-theme coffee-mode)))
  '(tool-bar-mode nil))
 
 (custom-set-faces
