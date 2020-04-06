@@ -11,7 +11,7 @@ help:
 
 .PHONY: cuda
 cuda:
-	$(install_command) bbswitch-dkms bumblebee cuda cudnn linux-lts-headers nvidia nvidia-lts nvidia-libgl nvidia-settings opencl-nvidia Xf86-video-intel
+	$(install_command) bbswitch-dkms bumblebee cuda cudnn linux-lts-headers nvidia nvidia-lts nvidia-libgl nvidia-settings opencl-nvidia xf86-video-intel
 	sudo gpasswd -a $(shell whoami) bumblebee
 	sudo systemctl enable bumblebeed.service
 
