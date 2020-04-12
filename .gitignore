@@ -24,8 +24,10 @@
 .ecryptfs
 .emacs.d/.python-environments
 .emacs.d/ac-comphist.dat
+.emacs.d/bookmarks
 .emacs.d/elpa/archives
 .emacs.d/eshell/history
+.emacs.d/local.el
 .emacs.d/projectile-bookmarks.eld
 .emacs.d/projectile.cache
 .esd_auth
@@ -65,6 +67,7 @@
 .ssh
 .sudo_as_admin_successful
 .thumbnails/
+.todos
 .vagrant.d/
 .vim/.netrwhist
 .viminfo
