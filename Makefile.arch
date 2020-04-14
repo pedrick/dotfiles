@@ -91,7 +91,20 @@ swap-caps:
 
 .PHONY: tools
 tools:
-	$(install_command) arandr bind-tools curl dstat graphviz htop iftop iotop python-pip tmux tree terminator whois xclip
+	$(install_command) alsa-utils arandr bind-tools curl dstat graphviz htop iftop iotop python-pip tmux tree terminator whois xclip
+
+# Note: Generally I should use upgrade-all. That installs the correct version of
+# postgresql after pacman gets too new a version.
+.PHONY: upgrade-packages
+upgrade-packages:
+	sudo pacman -Syu
+# This seems necessary every once in a while
+	sudo ghc-pkg recache
+# Needed to make sure we can log in the next time
+	xmonad --recompile
+
+.PHONY: upgrade-all
+upgrade-all: upgrade-packages postgresql
 
 # Use virtualbox-host-modules-dkms becaues I use the linux-lts kernel. I could install virtualbox-host-modules-arch if using the regular linux kernel.
 .PHONY: virtualbox
