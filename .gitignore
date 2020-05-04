@@ -67,7 +67,7 @@
 .ssh
 .sudo_as_admin_successful
 .thumbnails/
-.todos
+.todos.org
 .vagrant.d/
 .vim/.netrwhist
 .viminfo

@@ -143,7 +143,7 @@
   org-src-fontify-natively
   :init
   (setq org-capture-templates
-        '(("t" "todo" entry (file "~/.todos")
+        '(("t" "todo" entry (file "~/.todos.org")
            "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
           ("n" "note" entry (file "")
            "* %? :NOTE:\n%U\n%a\n")))
