@@ -14,6 +14,7 @@ cuda:
 	$(install_command) bbswitch-dkms bumblebee cuda cudnn linux-lts-headers nvidia nvidia-lts nvidia-libgl nvidia-settings opencl-nvidia xf86-video-intel
 	sudo gpasswd -a $(shell whoami) bumblebee
 	sudo systemctl enable bumblebeed.service
+	echo '\033[0;31mTODO: Enable Nvidia card during shutdown. See: https://wiki.archlinux.org/index.php/Bumblebee#Enable_NVIDIA_card_during_shutdown'
 
 .PHONY: editors
 editors:
