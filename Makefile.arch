@@ -67,6 +67,10 @@ ifeq ($(shell test -f $(ldm-gtk-greeter-conf).bak; echo $$?), 1)
 endif
 	sudo cp ~/conf/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
 
+.PHONY: openvpn
+openvpn:
+	$(install_command) openvpn networkmanager-openvpn
+
 .PHONY: postgresql
 postgresql: icu.63
 	sudo pacman -U --noconfirm https://archive.archlinux.org/packages/p/postgresql/postgresql-10.5-3-x86_64.pkg.tar.xz https://archive.archlinux.org/packages/p/postgresql-libs/postgresql-libs-10.5-3-x86_64.pkg.tar.xz
