@@ -1,5 +1,6 @@
 # install_command:=sudo apt-get install -y
 install_command:=sudo pacman -S --noconfirm --needed
+yay_install_command:=yay -S --noconfirm --needed
 
 package_dir:=~/packages
 icu_63_package:=icu-63.1-2-x86_64.pkg.tar.xz
@@ -8,6 +9,18 @@ icu_63_package:=icu-63.1-2-x86_64.pkg.tar.xz
 help:
 	@echo "Available Commands\n------------------"
 	@make -qp | awk -F':' '/^[a-zA-Z0-9][^$$#\/\t=]*:([^=]|$$)/ {split($$1,A,/ /);for(i in A)print A[i]}' | grep -v Makefile
+
+.PHONY: aur-packages
+aur-packages: core-packages
+# Install yay
+	rm -fr /tmp/yay && cd /tmp && git clone https://aur.archlinux.org/yay.git
+	cd /tmp/yay && makepkg -si --noconfirm
+# Install AUR packages
+	$(yay_install_command) pacmixer slack-desktop teams zoom
+
+.PHONY: core-packages
+core-packages:
+	$(install_command) base-devel man-db man-pages
 
 .PHONY: cuda
 cuda:
@@ -19,10 +32,6 @@ cuda:
 .PHONY: editors
 editors:
 	$(install_command) vim emacs
-
-.PHONY: feh
-feh:
-	$(install_command) feh
 
 .PHONY: gnome
 gnome:
@@ -67,6 +76,16 @@ ifeq ($(shell test -f $(ldm-gtk-greeter-conf).bak; echo $$?), 1)
 endif
 	sudo cp ~/conf/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
 
+.PHONY: networking
+networking:
+	$(install_command) iw iwd
+	sudo systemctl enable systemd-networkd
+	sudo systemctl start systemd-networkd
+	sudo systemctl enable systemd-resolved
+	sudo systemctl start systemd-resolved
+	sudo systemctl enable iwd
+	sudo systemctl start iwd
+
 .PHONY: openvpn
 openvpn:
 	$(install_command) openvpn networkmanager-openvpn
@@ -88,7 +107,7 @@ python-packages: tools
 
 .PHONY: swap-caps
 swap-caps:
-	sudo sed -i 's/XKBOPTIONS=""/XKBOPTIONS="ctrl:nocaps"/' /etc/default/keyboard
+	sudo cp ~/conf/etc/xorg.conf.d/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
 
 .PHONY: submodules
 	git submodule init
@@ -96,13 +115,13 @@ swap-caps:
 
 .PHONY: tools
 tools:
-	$(install_command) alsa-utils arandr bind-tools curl dstat graphviz htop iftop iotop python-pip tmux tree terminator whois xclip
+	$(install_command) arandr bind-tools curl dstat graphviz htop iftop iotop python-pip tmux tree terminator whois xclip
 
 # Note: Generally I should use upgrade-all. That installs the correct version of
 # postgresql after pacman gets too new a version.
 .PHONY: upgrade-packages
 upgrade-packages:
-	sudo pacman -Syu
+	yay -Syu
 # This seems necessary every once in a while
 	sudo ghc-pkg recache
 # Needed to make sure we can log in the next time
@@ -111,10 +130,11 @@ upgrade-packages:
 .PHONY: upgrade-all
 upgrade-all: upgrade-packages postgresql
 
-# Use virtualbox-host-modules-dkms becaues I use the linux-lts kernel. I could install virtualbox-host-modules-arch if using the regular linux kernel.
+# Use virtualbox-host-modules-dkms with the linux-lts kernel, use
+# virtualbox-host-modules-arch with the normal linux kernel
 .PHONY: virtualbox
 virtualbox:
-	$(install_command) virtualbox virtualbox-guest-iso virtualbox-host-modules-dkms
+	$(install_command) virtualbox virtualbox-guest-iso virtualbox-host-modules-arch
 
 .PHONY: xmobar
 xmobar:
@@ -137,5 +157,5 @@ zsh:
 	chsh -s `which zsh`
 
 .PHONY: all
-all: lightdm gnome gpg-settings install editors tools lint-js printing python-packages xmonad xorg zsh \
-    swap-caps
+all: aur-packages core-packages lightdm gnome gpg-settings install editors tools lint-js \
+    networking printing python-packages xmonad xorg zsh swap-caps

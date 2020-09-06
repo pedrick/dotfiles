@@ -83,6 +83,7 @@
 .xsession-errors*
 .z
 .zcompdump*
+.zoom/
 .zsh-update
 .zsh_history
 Applications/
