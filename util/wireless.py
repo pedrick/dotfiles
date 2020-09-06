@@ -30,19 +30,18 @@ def main():
         print('Wired')
         return
 
-    device_info = subprocess.check_output(['iwconfig', device]).decode('utf8')
-    strength = None
-    essid = None
+    device_info = subprocess.check_output(
+        ['iw', 'dev', device, 'link']).decode('utf8')
+    strength = 0
+    ssid = None
     for line in device_info.split('\n'):
-        if 'ESSID' in line:
-            fields = line.split(' ', 2)
-            essid_field = fields[2].strip()
-            # Select section between double quotes.
-            essid = essid_field[essid_field.find('"') + 1:-1]
-        if 'Link Quality' in line:
-            strength_string = line.split('=')[1].split()[0]
-            num, denom = map(float, strength_string.split('/'))
-            strength = int(num / denom * 100)
+        if 'SSID' in line:
+            fields = line.strip().split(':')
+            ssid = fields[1].strip()
+        if 'signal' in line:
+            dbm_string = line.strip().split()[1]
+            dbm = int(dbm_string)
+            strength = 2 * (dbm + 100)
 
     if strength > 85:
         strength_color = SolarizedColors.green
@@ -51,7 +50,7 @@ def main():
     else:
         strength_color = SolarizedColors.red
 
-    print('%s <fc=%s>%s%%</fc>' % (essid, strength_color, strength))
+    print('%s <fc=%s>%s%%</fc>' % (ssid, strength_color, strength))
 
 
 if __name__ == '__main__':
