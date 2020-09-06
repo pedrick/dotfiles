@@ -69,6 +69,7 @@ myKeys = [
     ((0 , xF86XK_AudioRaiseVolume), spawn "~/util/volume.sh up"),
     ((0 , xF86XK_AudioMute), spawn "~/util/volume.sh mute"),
     ((mod1Mask , xK_p), spawn "rofi -show run"),
+    ((mod1Mask , xK_0), spawn "rofi-pass"),
     ((mod4Mask , xK_f), sendMessage ToggleStruts),
     ((mod4Mask , xK_l), spawn "dm-tool switch-to-greeter"),
     ((mod4Mask , xK_Print), spawn "gnome-screenshot"),

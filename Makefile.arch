@@ -122,7 +122,7 @@ xmobar:
 
 .PHONY: xmonad-base
 xmonad-base:
-	$(install_command) xmonad xmonad-contrib xautolock rofi notify-osd stalonetray
+	$(install_command) xmonad xmonad-contrib xautolock rofi rofi-pass notify-osd stalonetray
 
 .PHONY: xmonad
 xmonad: xmonad-base xmobar
