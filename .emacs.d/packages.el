@@ -4,8 +4,9 @@
 (require 'use-package)
 
 ; Package settings
+(require 'package)
 (setq package-archives '(("gnu"       . "https://elpa.gnu.org/packages/")
-                         ("melpa"     . "http://melpa.milkbox.net/packages/")))
+                         ("melpa"     . "https://melpa.org/packages/")))
 
 (use-package auto-complete
   :config
