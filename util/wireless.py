@@ -16,6 +16,14 @@ def _get_device():
             continue
         fields = link.split()
         device = fields[1][:-1]
+        # Skip 'br-' addresses
+        if device.startswith('br-'):
+            continue
+
+        # Skip 'veth' addresses. These are likely created by virtualbox
+        if device.startswith('veth'):
+            continue
+
         return device
 
 
