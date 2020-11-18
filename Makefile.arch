@@ -16,11 +16,11 @@ aur-packages: core-packages
 	rm -fr /tmp/yay && cd /tmp && git clone https://aur.archlinux.org/yay.git
 	cd /tmp/yay && makepkg -si --noconfirm
 # Install AUR packages
-	$(yay_install_command) pacmixer slack-desktop teams zoom
+	$(yay_install_command) pacmixer slack-desktop teams ttf-ms-fonts zoom
 
 .PHONY: core-packages
 core-packages:
-	$(install_command) base-devel man-db man-pages
+	$(install_command) base-devel man-db man-pages ntp
 
 .PHONY: cuda
 cuda:
@@ -115,7 +115,7 @@ swap-caps:
 
 .PHONY: tools
 tools:
-	$(install_command) arandr bind-tools curl dstat graphviz htop iftop iotop python-pip tmux tree terminator whois xclip
+	$(install_command) arandr bind-tools curl dstat graphviz htop iftop iotop python-pip rsync tmux tree terminator whois xclip
 
 # Note: Generally I should use upgrade-all. That installs the correct version of
 # postgresql after pacman gets too new a version.
