@@ -42,3 +42,5 @@ if [[ `uname` == "Linux" ]]; then
 
     alias ls='ls --color=auto'
 fi
+
+complete -C /usr/bin/terraform terraform
