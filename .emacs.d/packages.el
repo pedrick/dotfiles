@@ -73,12 +73,12 @@
          (org-capture-mode . evil-insert-state)
          (yaml-mode . (lambda () (setq evil-shift-width 2)))))
 
-
 (use-package flycheck
   :config
   (global-flycheck-mode)
   (setq-default flycheck-flake8-maximum-line-length 80)
-  :hook (js-mode . (lambda () (flycheck-select-checker 'javascript-eslint))))
+  :hook ((js-mode . (lambda () (flycheck-select-checker 'javascript-eslint)))
+         (typescript-mode . (lambda () (flycheck-select-checker 'typescript-tslint)))))
 
 (use-package flyspell
   :hook ((git-commit-mode . flyspell-mode)
@@ -191,6 +191,8 @@
 (use-package smart-mode-line
   :config
   (sml/setup))
+
+(use-package typescript-mode)
 
 (use-package text-mode
   :hook (text-mode . turn-on-auto-fill))
