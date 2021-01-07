@@ -47,7 +47,7 @@ export ZSH_CUSTOM=$HOME/.zsh-plugins
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git ant debian gem postgres python zsh-syntax-highlighting
-         history-substring-search)
+         zsh-nvm history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 

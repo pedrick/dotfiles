@@ -7,3 +7,6 @@
 [submodule ".emacs.d/snippets/yasnippet-snippets"]
 	path = .emacs.d/snippets/yasnippet-snippets
 	url = git@github.com:AndreaCrotti/yasnippet-snippets.git
+[submodule ".zsh-plugins/plugins/zsh-nvm"]
+	path = .zsh-plugins/plugins/zsh-nvm
+	url = https://github.com/lukechilds/zsh-nvm.git
