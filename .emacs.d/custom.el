@@ -8,7 +8,7 @@
  '(global-whitespace-mode t)
  '(menu-bar-mode nil)
  '(package-selected-packages
-   '(csharp-mode typescript-mode flycheck use-package scss-mode yaml-mode helm yasnippet solarized-theme smart-mode-line rainbow-delimiters org-ac org magit less-css-mode jedi helm-projectile haskell-mode haml-mode go-mode gitignore-mode gitconfig-mode flx f evil dockerfile-mode cython-mode color-theme coffee-mode))
+   '(terraform-mode csharp-mode typescript-mode flycheck use-package scss-mode yaml-mode helm yasnippet solarized-theme smart-mode-line rainbow-delimiters org-ac org magit less-css-mode jedi helm-projectile haskell-mode haml-mode go-mode gitignore-mode gitconfig-mode flx f evil dockerfile-mode cython-mode color-theme coffee-mode))
  '(tool-bar-mode nil))
 
 (custom-set-faces

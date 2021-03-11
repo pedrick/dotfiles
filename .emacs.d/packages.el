@@ -192,10 +192,12 @@
   :config
   (sml/setup))
 
-(use-package typescript-mode)
+(use-package terraform-mode)
 
 (use-package text-mode
   :hook (text-mode . turn-on-auto-fill))
+
+(use-package typescript-mode)
 
 (use-package undo-tree
   :config
