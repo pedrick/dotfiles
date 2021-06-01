@@ -116,7 +116,8 @@ swap-caps:
 
 .PHONY: tools
 tools:
-	$(install_command) arandr bind-tools curl dstat graphviz htop iftop iotop python-pip rsync tmux tree terminator whois xclip
+	$(install_command) aspell-en arandr bind-tools curl dstat graphviz htop \
+	iftop iotop python-pip rsync tmux tree terminator whois xclip
 
 # Note: Generally I should use upgrade-all. That installs the correct version of
 # postgresql after pacman gets too new a version.
