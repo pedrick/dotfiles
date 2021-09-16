@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
@@ -81,7 +82,7 @@ main = do
     xmoproc <- spawnPipe "/usr/bin/xmobar /home/pedrick/.xmobarrc"
     xmoproc1 <- spawnPipe "/usr/bin/xmobar -x 1 /home/pedrick/.xmobarrc"
     spawn "xautolock -time 5 -locker \"dm-tool switch-to-greeter\""
-    xmonad $ docks
+    xmonad $ docks $ ewmh
       def {
         terminal = "terminator"
         , layoutHook = myLayoutHook
