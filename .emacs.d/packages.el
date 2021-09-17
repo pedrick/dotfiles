@@ -197,7 +197,9 @@
 (use-package text-mode
   :hook (text-mode . turn-on-auto-fill))
 
-(use-package typescript-mode)
+(use-package typescript-mode
+  :config
+  (setq typescript-indent-level 2))
 
 (use-package undo-tree
   :config
