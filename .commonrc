@@ -6,9 +6,10 @@ fi
 # Shell settings
 #################################################
 
+TERM=alacritty-direct
+
 # Colors
 export LSCOLORS=ExFxCxDxBxegedabagacad
-export TERM=xterm-256color
 
 # History
 export HISTFILESIZE=10000

@@ -84,7 +84,7 @@ main = do
     spawn "xautolock -time 5 -locker \"dm-tool switch-to-greeter\""
     xmonad $ docks $ ewmh
       def {
-        terminal = "terminator"
+        terminal = "alacritty"
         , layoutHook = myLayoutHook
         , startupHook = myStartupHook
         , logHook = myLogHook xmoproc xmoproc1
