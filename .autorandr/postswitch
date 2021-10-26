@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Detect if xmonad is running. If so, restart to update the screen.
+pgrep -f xmonad >/dev/null && xmonad --restart
