@@ -23,3 +23,5 @@
 [user]
     name = Ben Pedrick
     email = ben.pedrick@gmail.com
+[remote "origin"]
+	prune = true
