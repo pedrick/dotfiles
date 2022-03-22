@@ -86,6 +86,11 @@ networking:
 	sudo systemctl start systemd-resolved
 	sudo systemctl enable iwd
 	sudo systemctl start iwd
+# Setup .local name resolution using Avahi.
+# See https://wiki.archlinux.org/title/Avahi#Hostname_resolution
+	$(install_command) nss-mdns
+	@echo "$(tput bold)Add 'mdns_minimal [NOTFOUND=return]' to the hosts line in /etc/nsswitch.conf"
+	@echo "$(tput bold)See https://wiki.archlinux.org/title/Avahi#Hostname_resolution"
 
 .PHONY: openvpn
 openvpn:
