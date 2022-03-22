@@ -122,7 +122,8 @@ swap-caps:
 .PHONY: tools
 tools:
 	$(install_command) alacritty arandr aspell-en autorandr bind-tools curl \
-	dstat graphviz htop iftop iotop python-pip rsync tmux tree whois xclip
+	dstat graphviz htop iftop iotop python-pip rsync shellcheck tmux tree \
+	whois xclip
 	sudo systemctl enable autorandr.service
 	sudo systemctl start autorandr.service
 
