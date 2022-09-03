@@ -17,10 +17,14 @@ aur-packages: core-packages
 	cd /tmp/yay && makepkg -si --noconfirm
 # Install AUR packages
 	$(yay_install_command) pacmixer slack-desktop teams ttf-ms-fonts zoom
+	$(yay_install_command) laptop-mode-tools
 
 .PHONY: core-packages
 core-packages:
-	$(install_command) base-devel man-db man-pages ntp
+	$(install_command) base-devel man-db man-pages ntp reflector
+# Configure reflector to update the package list
+	sudo systemctl enable reflector.timer
+	sudo systemctl start reflector.timer
 
 .PHONY: cuda
 cuda:
