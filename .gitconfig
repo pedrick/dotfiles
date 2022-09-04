@@ -9,8 +9,6 @@
     oldHighlight = red bold 52
     newNormal = green bold
     newHighlight = green bold 22
-[core]
-    pager = diff-highlight | less -R -x4
 [pull]
     ff = only
 [push]
