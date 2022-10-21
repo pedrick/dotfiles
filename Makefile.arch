@@ -126,10 +126,12 @@ swap-caps:
 .PHONY: tools
 tools:
 	$(install_command) alacritty arandr aspell-en autorandr bind-tools curl \
-	dstat graphviz htop iftop iotop python-pip rsync shellcheck tmux tree \
-	whois xclip
+	dstat graphviz htop iftop iotop python-pip rsync shellcheck tlp tmux \
+	tree whois xclip
 	sudo systemctl enable autorandr.service
 	sudo systemctl start autorandr.service
+	sudo systemctl enable tlp.service
+	sudo systemctl start tlp.service
 
 # Note: Generally I should use upgrade-all. That installs the correct version of
 # postgresql after pacman gets too new a version.
