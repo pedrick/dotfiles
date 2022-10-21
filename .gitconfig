@@ -23,3 +23,5 @@
     email = ben.pedrick@gmail.com
 [remote "origin"]
 	prune = true
+[advice]
+	skippedCherryPicks = false
