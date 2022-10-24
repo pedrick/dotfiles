@@ -1,4 +1,0 @@
-#!/bin/bash
-
-xsetroot -solid "#6090E0"
-unity-settings-daemon &
