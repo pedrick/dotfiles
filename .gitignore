@@ -15,8 +15,6 @@
 .cabal
 .cache
 .compiz
-.config
-.config/
 .cups/
 .dbus
 .dmrc
