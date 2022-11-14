@@ -151,7 +151,7 @@ xorg:
 
 .PHONY: zsh
 zsh:
-	$(install_command) zsh
+	$(install_command) atuin zsh
 	chsh -s `which zsh`
 
 .PHONY: all
