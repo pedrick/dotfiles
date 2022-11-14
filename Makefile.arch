@@ -48,8 +48,8 @@ gpg-settings:
 
 .PHONY: gui-windows
 gui-windows:
-	$(install_command) fuzzel gdm slurp sway swaybg wl-clipboard wtype \
-	xdg-desktop-portal xdg-desktop-portal-wlr
+	$(install_command) fuzzel gdm grim i3status mako slurp sway swaybg \
+	wl-clipboard wtype xdg-desktop-portal xdg-desktop-portal-wlr
 	sudo systemctl enable gdm.service
 
 

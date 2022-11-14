@@ -73,7 +73,7 @@ input "type:touchpad" {
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+Shift+Return exec $term
 
     # Kill focused window
     bindsym $mod+Shift+c kill
@@ -143,8 +143,8 @@ input "type:touchpad" {
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    bindsym $mod+Shift+b splith
+    bindsym $mod+Shift+v splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -186,6 +186,9 @@ input "type:touchpad" {
     # Run my password manager
     bindsym $mod+0 exec tessen
 
+    # Screenshot an area
+    bindsym $mod+Shift+p exec grim -g "$(slurp)" - | wl-copy
+
 #
 # Resizing containers:
 #
@@ -220,7 +223,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    status_command i3status
 
     colors {
         statusline #ffffff
@@ -232,5 +235,11 @@ bar {
 # Set XDG_CURRENT_DESKTOP for xdg-desktop-portal-wlr. This enables screen
 # sharing for WebRTC.
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+exec mako
+
+
+# Float certain windows that don't behave well with a tiling window manager
+for_window [app_id="zoom"] floating enable
 
 include /etc/sway/config.d/*
