@@ -1,12 +1,12 @@
 module.exports = {
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
+        "eslint:recommended"
     ],
     "env": {
         es6: true,
         browser: true,
         node: true,
+        jquery: true,
     },
     "globals": {
         "define": "readonly",
@@ -22,10 +22,7 @@ module.exports = {
                 }
             },
         ],
-        "quotes": [
-            2,
-            "double"
-        ],
+        "quotes": "off",
         "linebreak-style": [
             2,
             "unix"
@@ -75,10 +72,6 @@ module.exports = {
         },
         "sourceType": "module"
     },
-    "parser": "babel-eslint",
-    "plugins": [
-        "react"
-    ],
     "settings": {
         "react": {
             "createClass": "createReactClass", // Regex for Component Factory to use,
