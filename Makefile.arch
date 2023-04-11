@@ -16,7 +16,7 @@ aur-packages: core-packages
 	rm -fr /tmp/yay && cd /tmp && git clone https://aur.archlinux.org/yay.git
 	cd /tmp/yay && makepkg -si --noconfirm
 # Install AUR packages
-	$(yay_install_command) pacmixer slack-desktop teams ttf-ms-fonts zoom
+	$(yay_install_command) pacmixer slack-desktop teams ttf-ms-fonts ttf-font-awesome zoom
 	$(yay_install_command) laptop-mode-tools
 
 .PHONY: core-packages
