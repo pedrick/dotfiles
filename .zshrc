@@ -46,10 +46,13 @@ export ZSH_CUSTOM=$HOME/.zsh-plugins
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ant debian gem postgres python zsh-syntax-highlighting
+plugins=(git ant debian docker gem postgres python zsh-syntax-highlighting
          zsh-nvm history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
+
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 # User configuration
 
