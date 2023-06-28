@@ -37,6 +37,12 @@
   :config
   (setq ediff-split-window-function 'split-window-horizontally))
 
+(use-package eglot
+  :defer t
+  :hook ((js-mode . eglot-ensure)
+         (python-mode . eglot-ensure)
+         (typescript-mode . eglot-ensure)))
+
 (use-package evil
   :defer nil
   :config
@@ -73,12 +79,16 @@
          (org-capture-mode . evil-insert-state)
          (yaml-mode . (lambda () (setq evil-shift-width 2)))))
 
-(use-package flycheck
-  :config
-  (global-flycheck-mode)
-  (setq-default flycheck-flake8-maximum-line-length 80)
-  :hook ((js-mode . (lambda () (flycheck-select-checker 'javascript-eslint)))
-         (typescript-mode . (lambda () (flycheck-select-checker 'typescript-tslint)))))
+(use-package company
+  :after eglot
+  :bind (:map company-active-map
+         ("C-n" . company-select-next)
+         ("C-p" . company-select-previous))
+  :hook (eglot-managed-mode . company-mode))
+
+(use-package flymake
+  :bind (("C-c ! l" . flymake-show-buffer-diagnostics)
+         ))
 
 (use-package flyspell
   :hook ((git-commit-mode . flyspell-mode)
@@ -110,13 +120,6 @@
 (use-package imenu
   :config
   (setq imenu-auto-rescan t))
-
-(use-package jedi-mode
-  :defines
-  jedi:complete-on-dot
-  :config
-  (setq jedi:complete-on-dot t)
-  :hook (python-mode . jedi:setup))
 
 (use-package js)
 

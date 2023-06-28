@@ -122,9 +122,12 @@ submodules:
 
 .PHONY: tools
 tools:
+# General tools
 	$(install_command) alacritty arandr aspell-en autorandr bind-tools curl \
 	dstat graphviz htop iftop iotop python-pip rsync shellcheck tlp tmux \
 	tree whois xclip
+# LSP servers
+	$(install_command) pyright typescript-language-server
 	sudo systemctl enable autorandr.service
 	sudo systemctl start autorandr.service
 	sudo systemctl enable tlp.service
