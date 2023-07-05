@@ -43,6 +43,7 @@ gpg-settings:
 gui-windows:
 	$(install_command) fuzzel gdm grim i3status mako slurp sway swaybg \
 	wl-clipboard wtype xdg-desktop-portal xdg-desktop-portal-wlr
+	$(yay_install_command) tessen
 	sudo systemctl enable gdm.service
 
 
