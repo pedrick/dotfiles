@@ -225,12 +225,24 @@ bar {
     # The default just shows the current date and time.
     status_command i3status
 
+    separator_symbol "    |    "
+    status_edge_padding 20
+    status_padding 5
+    workspace_min_width 40
+
     colors {
         statusline #ffffff
         background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        active_workspace #5f676a #5f676a #ffffff
+        focused_workspace #285577 #285577 #ffffff
+        inactive_workspace #323232 #323232 #ffffff
     }
 }
+
+#
+# Appearence
+#
+font "Noto Sans" 10
 
 # Set XDG_CURRENT_DESKTOP for xdg-desktop-portal-wlr. This enables screen
 # sharing for WebRTC.
