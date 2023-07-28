@@ -8,11 +8,6 @@
 (setq package-archives '(("gnu"       . "https://elpa.gnu.org/packages/")
                          ("melpa"     . "https://melpa.org/packages/")))
 
-(use-package auto-complete
-  :config
-  (global-auto-complete-mode 1)
-  (ac-flyspell-workaround))
-
 (use-package autorevert
   :config
   (global-auto-revert-mode 1))
@@ -76,6 +71,7 @@
               ("j" . #'cofi/maybe-exit)
               ([remap newline] . evil-ret-and-indent))
   :hook ((flycheck-error-list-mode . evil-emacs-state)
+         (flymake-diagnostics-buffer-mode . evil-emacs-state)
          (org-capture-mode . evil-insert-state)
          (yaml-mode . (lambda () (setq evil-shift-width 2)))))
 
@@ -87,8 +83,7 @@
   :hook (eglot-managed-mode . company-mode))
 
 (use-package flymake
-  :bind (("C-c ! l" . flymake-show-buffer-diagnostics)
-         ))
+  :bind (("C-c ! l" . flymake-show-buffer-diagnostics)))
 
 (use-package flyspell
   :hook ((git-commit-mode . flyspell-mode)
