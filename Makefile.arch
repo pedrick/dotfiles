@@ -26,13 +26,6 @@ core-packages:
 	sudo systemctl enable reflector.timer
 	sudo systemctl start reflector.timer
 
-.PHONY: cuda
-cuda:
-	$(install_command) bbswitch-dkms bumblebee cuda cudnn linux-lts-headers nvidia nvidia-lts nvidia-libgl nvidia-settings opencl-nvidia xf86-video-intel
-	sudo gpasswd -a $(shell whoami) bumblebee
-	sudo systemctl enable bumblebeed.service
-	echo '\033[0;31mTODO: Enable Nvidia card during shutdown. See: https://wiki.archlinux.org/index.php/Bumblebee#Enable_NVIDIA_card_during_shutdown'
-
 .PHONY: editors
 editors:
 	$(install_command) vim emacs
@@ -111,10 +104,6 @@ printing:
 python-packages: tools
 	sudo pip install diff-highlight flake8 gprof2dot ipython ipdb
 
-.PHONY: swap-caps
-swap-caps:
-	sudo cp ~/conf/etc/xorg.conf.d/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
-
 .PHONY: submodules
 submodules:
 	git submodule init
@@ -123,13 +112,11 @@ submodules:
 .PHONY: tools
 tools:
 # General tools
-	$(install_command) alacritty arandr aspell-en autorandr bind-tools curl \
+	$(install_command) alacritty aspell-en bind-tools curl \
 	dstat graphviz htop iftop iotop python-pip rsync shellcheck tlp tmux \
-	tree whois xclip
+	tree whois
 # LSP servers
 	$(install_command) pyright typescript-language-server
-	sudo systemctl enable autorandr.service
-	sudo systemctl start autorandr.service
 	sudo systemctl enable tlp.service
 	sudo systemctl start tlp.service
 
@@ -148,10 +135,6 @@ upgrade-all: upgrade-packages postgresql
 virtualbox:
 	$(install_command) virtualbox virtualbox-guest-iso virtualbox-host-modules-arch
 
-.PHONY: xorg
-xorg:
-	$(install_command) xf86-input-synaptics
-
 .PHONY: zsh
 zsh:
 	$(install_command) atuin zsh
@@ -159,4 +142,4 @@ zsh:
 
 .PHONY: all
 all: aur-packages core-packages lightdm gnome gpg-settings install editors tools lint-js \
-    networking printing python-packages xorg zsh swap-caps
+    networking printing python-packages zsh
