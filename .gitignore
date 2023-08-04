@@ -26,6 +26,7 @@
 .emacs.d/elpa/archives
 .emacs.d/eshell/history
 .emacs.d/local.el
+.emacs.d/org-roam.db
 .emacs.d/projectile-bookmarks.eld
 .emacs.d/projectile.cache
 .emacs.d/transient/

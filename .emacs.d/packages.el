@@ -154,6 +154,12 @@
          ("\C-ca" . org-agenda)
          ("\C-cb" . org-iswitchb)))
 
+(use-package org-roam
+  :custom
+  (org-roam-directory "~/org-roam")
+  :config
+  (org-roam-setup))
+
 (use-package projectile
   :defines
   projectile-completion-system
