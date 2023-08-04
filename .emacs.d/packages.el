@@ -118,7 +118,7 @@
 
 (use-package js)
 
-(use-package magit-mode
+(use-package magit
   :config
   (evil-define-key 'normal git-rebase-mode-map
     (kbd "C-p") 'git-rebase-move-line-up
