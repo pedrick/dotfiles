@@ -87,7 +87,7 @@
  '(font-lock-builtin-face ((t (:foreground "color-71" :slant normal :weight normal))))
  '(font-lock-constant-face ((t (:foreground "#268bd2" :weight normal))))
  '(font-lock-keyword-face ((t (:foreground "#859900" :weight normal))))
- '(helm-selection ((t (:background "none" :underline t))))
+ '(helm-selection ((t (:background unspecified :extend t :underline t))))
  '(mode-line ((t (:background "#cccccc" :foreground "black" :inverse-video nil :box nil :underline nil :slant normal :weight normal))))
  '(mode-line-inactive ((t (:inherit mode-line :background "#eeeeee" :foreground "grey20" :inverse-video nil :box nil :underline nil :slant normal :weight normal))))
  '(whitespace-line ((t (:foreground "#af005f")))))
