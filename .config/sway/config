@@ -246,7 +246,9 @@ font "Noto Sans" 10
 
 # Set XDG_CURRENT_DESKTOP for xdg-desktop-portal-wlr. This enables screen
 # sharing for WebRTC.
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+# Set MOZ_ENABLE_WAYLAND=1 tells Firefox to start with Wayland.
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway \
+    MOZ_ENABLE_WAYLAND=1
 
 exec mako
 
