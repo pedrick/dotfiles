@@ -41,10 +41,10 @@
 (use-package evil
   :defer nil
   :config
-  (message "Starting evil mode")
   (evil-mode 1)
   (setq evil-want-C-i-jump nil)  ; Don't bind <TAB>
   (setq evil-auto-indent t)
+  (setq evil-undo-system 'undo-tree)
 
   (evil-define-command cofi/maybe-exit ()
     :repeat change
