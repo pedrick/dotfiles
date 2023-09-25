@@ -2,9 +2,6 @@
 install_command:=sudo pacman -S --noconfirm --needed
 yay_install_command:=yay -S --noconfirm --needed
 
-package_dir:=~/packages
-icu_63_package:=icu-63.1-2-x86_64.pkg.tar.xz
-
 .PHONY: help
 help:
 	@echo "Available Commands\n------------------"
@@ -46,15 +43,6 @@ gui-windows:
 	$(yay_install_command) tessen
 	sudo systemctl enable gdm.service
 
-
-icu_extract_dir:=/tmp/icu.63
-.PHONY: icu.63
-icu.63:
-	mkdir $(icu_extract_dir)
-	cd $(icu_extract_dir) && tar -xf $(package_dir)/$(icu_63_package)
-	sudo cp $(icu_extract_dir)/usr/lib/libicu*.63.1 /usr/lib
-	rm -r $(icu_extract_dir)
-
 home_dir=$(echo ~)
 current_dir=$(pwd)
 .PHONY: install
@@ -90,11 +78,6 @@ networking:
 openvpn:
 	$(install_command) openvpn networkmanager-openvpn
 
-.PHONY: postgresql
-postgresql: icu.63
-	sudo pacman -U --noconfirm https://archive.archlinux.org/packages/p/postgresql/postgresql-10.5-3-x86_64.pkg.tar.xz https://archive.archlinux.org/packages/p/postgresql-libs/postgresql-libs-10.5-3-x86_64.pkg.tar.xz
-	@-cd /usr/lib && sudo ln -s libreadline.so.8 libreadline.so.7
-
 .PHONY: printing
 printing:
 	$(install_command) avahi cups hplip nss-mdns
@@ -121,14 +104,9 @@ tools:
 	sudo systemctl enable tlp.service
 	sudo systemctl start tlp.service
 
-# Note: Generally I should use upgrade-all. That installs the correct version of
-# postgresql after pacman gets too new a version.
 .PHONY: upgrade-packages
 upgrade-packages:
 	yay -Syu
-
-.PHONY: upgrade-all
-upgrade-all: upgrade-packages postgresql
 
 # Use virtualbox-host-modules-dkms with the linux-lts kernel, use
 # virtualbox-host-modules-arch with the normal linux kernel
