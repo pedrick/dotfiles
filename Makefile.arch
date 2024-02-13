@@ -97,7 +97,7 @@ submodules:
 tools:
 # General tools
 	$(install_command) alacritty aspell-en bind-tools curl \
-	dstat graphviz htop iftop iotop python-pip rsync shellcheck tlp tmux \
+	dool graphviz htop iftop iotop python-pip rsync shellcheck tlp tmux \
 	tree whois
 # LSP servers
 	$(install_command) pyright typescript-language-server

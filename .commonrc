@@ -34,7 +34,7 @@ export XDG_STATE_HOME=$HOME/.local/state
 # Aliases
 #################################################
 
-alias dstat='dstat --bw'
+alias dool='dool --bw'
 alias emacs='emacs -nw'
 alias emacsclient='emacsclient -t'
 alias ec='emacsclient -t'
