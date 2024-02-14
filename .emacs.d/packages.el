@@ -73,6 +73,7 @@
   :hook ((flycheck-error-list-mode . evil-emacs-state)
          (flymake-diagnostics-buffer-mode . evil-emacs-state)
          (org-capture-mode . evil-insert-state)
+         (xref--xref-buffer-mode . evil-emacs-state)
          (yaml-mode . (lambda () (setq evil-shift-width 2)))))
 
 (use-package company
