@@ -187,7 +187,7 @@ input "type:touchpad" {
     bindsym $mod+0 exec tessen
 
     # Screenshot an area
-    bindsym $mod+Shift+p exec grim -g "$(slurp)" - | wl-copy
+    bindsym $mod+Shift+p exec XDG_CURRENT_DESKTOP=sway flameshot gui
 
 #
 # Resizing containers:
@@ -255,5 +255,11 @@ exec mako
 
 # Float certain windows that don't behave well with a tiling window manager
 for_window [app_id="zoom"] floating enable
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+
+# Ensure DISPLAY and DISPLAY_WAYLAND are setup correctly
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 include /etc/sway/config.d/*
