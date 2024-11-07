@@ -29,7 +29,7 @@
 (defcustom chatbot-openai-secret-key nil
   "Secret key for access the OpenAI API")
 
-(defcustom chatbot-openai-model "gpt-3.5-turbo"
+(defcustom chatbot-openai-model "gpt-4o-mini"
   "Which model to use with the OpenAI API")
 
 (defun chatbot-call (query)
