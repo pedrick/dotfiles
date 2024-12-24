@@ -94,6 +94,8 @@
 (use-package git-commit
   :mode ("COMMIT_EDITMSG\\$" . git-commit-mode))
 
+(use-package gptel)
+
 (use-package haskell-mode
   :hook (haskell-mode . 'turn-on-haskell-indentation))
 
