@@ -38,7 +38,7 @@
  '(nrepl-message-colors
    '("#dc322f" "#cb4b16" "#b58900" "#5b7300" "#b3c34d" "#0061a8" "#2aa198" "#d33682" "#6c71c4"))
  '(package-selected-packages
-   '(gptel org-roam company eglot markdown-mode php-mode flymake-shellcheck undo-tree terraform-mode typescript-mode flycheck use-package scss-mode yaml-mode helm yasnippet solarized-theme smart-mode-line rainbow-delimiters magit less-css-mode jedi helm-projectile haskell-mode haml-mode go-mode gitignore-mode gitconfig-mode flx f evil dockerfile-mode cython-mode color-theme coffee-mode))
+   '(company orderless consult vertico which-key gptel org-roam eglot markdown-mode php-mode flymake-shellcheck undo-tree terraform-mode typescript-mode flycheck use-package scss-mode yaml-mode yasnippet solarized-theme smart-mode-line rainbow-delimiters magit less-css-mode jedi haskell-mode haml-mode go-mode gitignore-mode gitconfig-mode flx f evil dockerfile-mode cython-mode color-theme coffee-mode))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))

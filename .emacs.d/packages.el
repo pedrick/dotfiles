@@ -24,6 +24,13 @@
   :hook (java-mode . (lambda () (c-set-offset 'arglist-intro '+)))
   :after (evil))
 
+(use-package company
+  :after eglot
+  :bind (:map company-active-map
+         ("C-n" . company-select-next)
+         ("C-p" . company-select-previous))
+  :hook (eglot-managed-mode . company-mode))
+
 (use-package dired
   :config
   (setq dired-listing-switches "-alh"))
@@ -76,13 +83,6 @@
          (xref--xref-buffer-mode . evil-emacs-state)
          (yaml-mode . (lambda () (setq evil-shift-width 2)))))
 
-(use-package company
-  :after eglot
-  :bind (:map company-active-map
-         ("C-n" . company-select-next)
-         ("C-p" . company-select-previous))
-  :hook (eglot-managed-mode . company-mode))
-
 (use-package flymake
   :bind (("C-c ! l" . flymake-show-buffer-diagnostics)))
 
@@ -98,22 +98,6 @@
 
 (use-package haskell-mode
   :hook (haskell-mode . 'turn-on-haskell-indentation))
-
-(use-package helm
-  :defines
-  helm-ff-skip-boring-files
-  :config
-  (helm-mode 1)
-  (setq helm-ff-skip-boring-files t)
-  (add-to-list 'helm-boring-file-regexp-list "\\.pyc$")
-  :bind (("C-x C-f" . helm-find-files)
-         ("M-x" . helm-M-x)
-         :map helm-map
-         ("<tab>" . helm-execute-persistent-action)
-         ; make TAB work in terminal
-         ("C-i" . helm-execute-persistent-action)
-         ; list actions using C-z
-         ("C-z" . helm-select-action)))
 
 (use-package imenu
   :config
@@ -137,6 +121,11 @@
 (use-package make-mode
   :config
   (modify-syntax-entry ?= "'"))
+
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
 
 (use-package org-mode
   :defines
@@ -163,18 +152,6 @@
   :config
   (org-roam-setup))
 
-(use-package projectile
-  :defines
-  projectile-completion-system
-  projectile-use-git-grep
-  :init
-  (setq projectile-completion-system 'helm)
-  (setq projectile-use-git-grep t)
-  :config
-  (define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
-  (projectile-mode)
-  (helm-projectile-on))
-
 (use-package python
   :defines
   python-indent-offset
@@ -189,11 +166,6 @@
 (use-package scss-mode
   :config
   (setq scss-compile-at-save nil))
-
-(use-package semantic-mode
-  :config
-  (semantic-mode 1)
-  :bind("C-c j" . helm-semantic-or-imenu))
 
 (use-package smart-mode-line
   :config
@@ -221,6 +193,17 @@
   (setq uniquify-separator "|")
   (setq uniquify-after-kill-buffer-p t) ; rename after killing uniquified
   (setq uniquify-ignore-buffers-re "^\\*")) ; don't muck with special buffers
+
+(use-package vertico
+  :init
+  (vertico-mode))
+
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
+
+(keymap-set minibuffer-mode-map "TAB" 'minibuffer-complete)
 
 (use-package whitespace
   :config
