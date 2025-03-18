@@ -10,11 +10,12 @@
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-cr" 'revert-buffer)
 
+(keymap-set minibuffer-mode-map "TAB" 'minibuffer-complete)
+
 ; Text Defaults
 (setq-default indent-tabs-mode nil)
 (setq buffer-file-coding-system 'utf-8-unix)
 (setq-default fill-column 80)
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 ; Colors
 (load-theme 'solarized-light t)
@@ -25,6 +26,13 @@
 (column-number-mode 1)
 (menu-bar-mode 0)
 (show-paren-mode 1)
+
+(setopt enable-recursive-minibuffers t)
+(setopt completion-auto-help 'always)
+(setopt completions-max-height 40)
+(setopt completions-format 'one-column)
+(setopt completion-auto-select 'second-tab)
+
 
 ; Backup directory
 (setq backup-by-copying t      ; don't clobber symlinks
