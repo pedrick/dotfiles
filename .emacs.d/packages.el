@@ -31,6 +31,10 @@
          ("C-p" . company-select-previous))
   :hook (eglot-managed-mode . company-mode))
 
+(use-package consult
+  :after imenu
+  :bind (("C-c C-j" . consult-imenu)))
+
 (use-package dired
   :config
   (setq dired-listing-switches "-alh"))
@@ -203,8 +207,6 @@
   :config
   (which-key-mode))
 
-(keymap-set minibuffer-mode-map "TAB" 'minibuffer-complete)
-
 (use-package whitespace
   :config
   (global-whitespace-mode 1)
@@ -219,20 +221,5 @@
 
 (use-package yaml-mode
   :mode "\\.sls$")
-
-(use-package yasnippet
-  :defines
-  yas-snippet-dirs
-  yas-prompt-functions
-  :init
-  ; Snippet directories are loaded in order. If there are duplicate entries, the
-  ; first one is taken. So if I want to override anything in yasnippet-snippets, I
-  ; can add something of the same name to custom-snippets.
-  (setq yas-snippet-dirs
-        '("~/.emacs.d/snippets/custom-snippets"
-          "~/.emacs.d/snippets/yasnippet-snippets"))
-  (setq yas-prompt-functions '(yas-x-prompt yas-dropdown-prompt yas-completing-prompt))
-  :config
-  (yas-global-mode 1))
 
 ;;; packages.el ends here
