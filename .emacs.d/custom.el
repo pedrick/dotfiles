@@ -26,11 +26,10 @@
  '(package-selected-packages
    '(color-theme company consult consult-eglot corfu cython-mode dockerfile-mode
                  eglot evil f flx flycheck flymake-shellcheck gitconfig-mode
-                 gitignore-mode go-mode gptel haml-mode haskell-mode jedi
-                 less-css-mode magit markdown-mode orderless org-roam php-mode
-                 rainbow-delimiters scss-mode smart-mode-line solarized-theme
-                 terraform-mode typescript-mode undo-tree use-package vertico
-                 which-key yaml-mode))
+                 gitignore-mode go-mode gptel haml-mode haskell-mode jedi magit
+                 markdown-mode orderless org-roam php-mode rainbow-delimiters
+                 smart-mode-line solarized-theme terraform-mode typescript-mode
+                 undo-tree use-package vertico which-key yaml-mode))
  '(tool-bar-mode nil))
 
 (custom-set-faces

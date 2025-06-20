@@ -32,7 +32,6 @@
   :hook (eglot-managed-mode . company-mode))
 
 (use-package consult
-  :after imenu
   :bind (("C-c C-j" . consult-imenu)))
 
 (use-package dired
@@ -103,10 +102,6 @@
 (use-package haskell-mode
   :hook (haskell-mode . 'turn-on-haskell-indentation))
 
-(use-package imenu
-  :config
-  (setq imenu-auto-rescan t))
-
 (use-package js)
 
 (use-package magit
@@ -166,10 +161,6 @@
 
 (use-package rainbow-delimiters-mode
   :hook (python-mode . rainbow-delimiters-mode))
-
-(use-package scss-mode
-  :config
-  (setq scss-compile-at-save nil))
 
 (use-package smart-mode-line
   :config
