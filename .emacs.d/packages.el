@@ -32,7 +32,8 @@
   :hook (eglot-managed-mode . company-mode))
 
 (use-package consult
-  :bind (("C-c C-j" . consult-imenu)))
+  :bind (([remap imenu] . consult-imenu)
+         ([remap switch-to-buffer] . consult-buffer)))
 
 (use-package dired
   :config
