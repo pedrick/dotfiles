@@ -45,4 +45,27 @@
       kept-old-versions 2
       version-control t)       ; use versioned backups
 
+; Custom Functions
+(defun ben-translate-to-english (bounds)
+  "Translates the selected region to English. If no region is selected,
+translates the current line. The translation is shown in the echo buffer."
+  (interactive
+   (list
+    (cond
+     ((use-region-p) (cons (region-beginning) (region-end)))
+     ((derived-mode-p 'text-mode)
+      (list (bounds-of-thing-at-point 'sentence)))
+     (t (cons (line-beginning-position) (line-end-position))))))
+  (gptel-request
+   (buffer-substring-no-properties (car bounds) (cdr bounds)) ; the text to translate
+   :system "Translate this text to English."
+   :buffer (current-buffer)
+   :context (cons (set-marker (make-marker) (car bounds))
+                  (set-marker (make-marker) (cdr bounds)))
+   :callback
+   (lambda (response info)
+     (if (not response)
+         (message "ChatGPT response failed with: %s" (plist-get info :status))
+       (message "Translation: %s" response)))))
+
 ;;; globals.el ends here
