@@ -160,6 +160,11 @@
         evil-shift-width 4
         python-indent-offset 4))
 
+(use-package python-black
+  :demand t
+  :after python
+  :hook (python-mode . python-black-on-save-mode-enable-dwim))
+
 (use-package rainbow-delimiters-mode
   :hook (python-mode . rainbow-delimiters-mode))
 
