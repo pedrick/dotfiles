@@ -24,3 +24,8 @@ foreground = "0x586e75"
 
 [font]
 size = 10.0
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
