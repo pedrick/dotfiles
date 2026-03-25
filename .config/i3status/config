@@ -2,12 +2,12 @@ general {
     output_format = "i3bar"
 }
 
-order += "wireless wlan0"
+order += "wireless wlp0s20f3"
 order += "battery 0"
 order += "volume master"
 order += "tztime local"
 
-wireless wlan0 {
+wireless wlp0s20f3 {
         format_up = "📶 %essid %quality [%ip]"
         format_down = "📶 down"
 }
