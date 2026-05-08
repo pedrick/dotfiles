@@ -13,8 +13,7 @@ aur-packages: core-packages
 	rm -fr /tmp/yay && cd /tmp && git clone https://aur.archlinux.org/yay.git
 	cd /tmp/yay && makepkg -si --noconfirm
 # Install AUR packages
-	$(yay_install_command) slack-desktop teams ttf-ms-fonts ttf-font-awesome zoom
-	$(yay_install_command) laptop-mode-tools
+	$(yay_install_command) slack-desktop ttf-ms-fonts ttf-font-awesome zoom
 
 .PHONY: core-packages
 core-packages:
@@ -25,7 +24,7 @@ core-packages:
 
 .PHONY: editors
 editors:
-	$(install_command) vim emacs
+	$(install_command) emacs
 
 .PHONY: gnome
 gnome:
@@ -97,11 +96,11 @@ submodules:
 .PHONY: tools
 tools:
 # General tools
-	$(install_command) alacritty aspell-en bind-tools curl \
+	$(install_command) alacritty aspell-en bind-tools claude-code curl \
 	dool graphviz htop iftop iotop python-pip rsync shellcheck tlp tmux \
 	tree whois
 # LSP servers
-	$(install_command) pyright typescript-language-server
+	$(install_command) pyright
 	sudo systemctl enable tlp.service
 	sudo systemctl start tlp.service
 
@@ -121,5 +120,5 @@ zsh:
 	chsh -s `which zsh`
 
 .PHONY: all
-all: aur-packages core-packages lightdm gnome gpg-settings install editors tools lint-js \
+all: aur-packages core-packages gnome gpg-settings editors tools lint-js \
     networking printing python-packages zsh
