@@ -37,8 +37,8 @@ gpg-settings:
 
 .PHONY: gui-windows
 gui-windows:
-	$(install_command) flameshot fuzzel gdm grim i3status mako \
-	sway swaybg swayidle swaylock \
+	$(install_command) brightnessctl flameshot fuzzel gdm grim i3status \
+	mako sway swaybg swayidle swaylock \
 	wl-clipboard swayidle wtype xdg-desktop-portal xdg-desktop-portal-wlr
 	$(yay_install_command) tessen
 	sudo systemctl enable gdm.service
@@ -50,6 +50,10 @@ install:
 ifneq ($(current_dir),$(home_dir))
 	rsync --exclude ".git/" --exclude "Makefile" -av . ~
 endif
+
+.PHONY: intel-video
+intel-video:
+	$(install_command) intel-media-driver libva libva-utils intel-gpu-tools
 
 .PHONY: lint-js
 lint-js:
